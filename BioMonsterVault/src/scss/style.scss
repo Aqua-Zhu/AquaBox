@@ -1,0 +1,36 @@
+@use './variables/' as *;
+@use './function/' as *;
+@use './reset';
+body{
+    background-color: black;
+    color: white;
+}
+#topbar{
+    display: flex;
+    justify-content: space-between;
+    nav{
+        ul{
+            display: flex;
+            li{
+                margin: 0 10px;
+            }
+        }
+        
+    }
+}
+// banner
+#banner{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 90%;
+    }
+    #bannerBtn{
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+}
