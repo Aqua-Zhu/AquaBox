@@ -1,36 +1,232 @@
 @use './variables/' as *;
 @use './function/' as *;
 @use './reset';
-body{
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+// 字體
+@font-face {
+    font-family: 'Linebeam';
+    src: url(../assets/fonts/Linebeam.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NicoMoji';
+    src: url(../assets/fonts/NicoMoji-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+// 共用區
+body {
+    background-color: $deep;
     color: white;
 }
-#topbar{
+
+.title {
+    margin-top: 200px;
+
+    h2 {
+        font-size: $font-size-ex-title;
+        font-family: 'Linebeam';
+        position: relative;
+        text-align: center;
+    }
+
+    .h2bottom {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        top: 12px;
+        left: 10px;
+    }
+
+    .h2main {
+        margin: 20px 0;
+    }
+}
+
+// 導覽列
+#topbar {
+    width: 96%;
     display: flex;
     justify-content: space-between;
-    nav{
-        ul{
+    margin: 2%;
+    position: fixed;
+    z-index: 999;
+
+    a {
+        color: $color-main-yellow;
+    }
+
+    h1 {
+        font-family: 'Linebeam';
+        font-size: $font-size-xxl;
+    }
+
+    nav {
+        ul {
             display: flex;
-            li{
+
+            li {
                 margin: 0 10px;
+                font-family: 'NicoMoji';
             }
         }
-        
     }
 }
+
 // banner
-#banner{
+#banner {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    img{
-        width: 90%;
+
+    // position: relative;
+    h2 {
+        position: absolute;
+        font-family: 'Linebeam';
+        font-size: $font-size-ex;
+        color: $color-main-yellow;
+        margin: 0 10%;
+        text-align: center;
     }
-    #bannerBtn{
-        background: none;
-        border: none;
-        color: white;
+
+    img {
+        position: relative;
+        width: 90%;
+        height: 90%;
+    }
+
+    #bannerBtn {
         cursor: pointer;
+        border: none;
+        background-color: transparent;
+
+        #bannerBtnBlock1 {
+            position: absolute;
+            width: 12%;
+            height: 11%;
+            bottom: 30px;
+            right: 21%;
+            clip-path: polygon(0 100%, 65% 0, 100% 0, 35% 100%);
+            background-color: $color-main-yellow;
+        }
+
+        #bannerBtnBlock2 {
+            position: absolute;
+            width: 10%;
+            height: 11%;
+            bottom: 30px;
+            right: 27%;
+            clip-path: polygon(0 100%, 77% 0, 100% 0, 23% 100%);
+            background-color: $color-main-yellow;
+        }
+
+        #bannerBtnText {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: $deep;
+            font-family: 'Linebeam';
+            font-size: $font-size-xxl;
+            cursor: pointer;
+            background-color: $color-main-yellow;
+            width: 22%;
+            height: 11%;
+            padding-left: 5%;
+            border-radius: 0 0 50px 0;
+            clip-path: polygon(0 100%, 35% 0, 100% 0, 100% 100%);
+            bottom: 30px;
+            right: 5%;
+            overflow: visible;
+        }
     }
 }
+
+// HIT區
+#hit {
+    .title {
+        #hitTop {
+            width: 50%;
+            position: relative;
+
+            .titleTop1 {}
+
+            .titleTop2 {
+                position: absolute;
+                width: 25%;
+                bottom: 25%;
+                left: 35%;
+            }
+
+            .titleTop3 {
+                position: absolute;
+                width: 20%;
+                top: 50%;
+                right: 15%;
+            }
+        }
+
+        h2 {
+            color: $color-main-yellow;
+
+            .h2bottom {
+                color: $color-main-yBg;
+            }
+        }
+
+        #hitBottom {
+            width: 60%;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+// NEWS區
+#news {
+    .title {
+        #newsTop {
+            width: 50%;
+        }
+
+        h2 {
+            color: $color-main-blue;
+
+            .h2bottom {
+                color: $color-main-yellow;
+            }
+        }
+
+        #newsBottom {
+            width: 60%;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+// ABOUT區
+#about {
+    background-color: #D0D0D0;
+    color: #000;
+    .title {
+        h2 {
+            color:white;
+
+            .h2bottom {
+                color: #000;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// FOOTER區
