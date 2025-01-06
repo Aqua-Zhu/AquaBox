@@ -39,7 +39,7 @@ export default function Home() {
 
                         <h2 className="h2main">
                             HIT
-                            <h2 className="h2bottom">HIT</h2>
+                            <p className="h2bottom">HIT</p>
                         </h2>
 
                         <figure id="hitBottom">
@@ -49,40 +49,65 @@ export default function Home() {
                         </figure>
                     </header>
                     <article className="hit1">
-                        <figure className="hit1img">
-                            <img src="./images/mon1.jpg" alt="" />
+                        <figure className="hitimg">
+                            <img className="hit1img" src="./images/mon1.jpg" alt="" />
+                            <img className="hitWrapper" src="./images/hitborderV-blue.png" alt="" />
                         </figure>
                         <div className="hit1ContentWrapper">
-                            <div id="line1"></div>
-                            <div className="hit1Content">
+                            <div id="line1"><img src="./images/FileLineMain-blue.svg" alt="" /></div>
+                            <div className="lineBlockFill hitborder"><img src="./images/FileLineBlockStrike-blue.svg" alt="" /></div>
+                            <div className="lineBlockStr hitborder"><img src="./images/FileLineBlockFill-blue.svg" alt="" /></div>
+                            <div className="hitR hitborder"><img src="./images/FileContentBlock.svg" alt="" /></div>
+                            <div className="hitL1 hitborder"><img src="./images/FileContentBlock01.svg" alt="" /></div>
+                            <div className="hitL2 hitborder"><img src="./images/FileContentBlock02.svg" alt="" /></div>
+                            <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
+                            <div className="hit1Content hitContent">
                                 <h3>Creeper</h3>
-                                <p>predatory/mammal/migratory</p>
+                                <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p>-2024/11/21</p>
+                                <p className="time">-2024/11/21</p>
                             </div>
                         </div>
                     </article>
-                    <article className="hit2">
-                        <figure className="hit2img"></figure>
-                        <div className="hit2ContentWrapper">
-                            <div id="line2"></div>
-                            <div className="hit2Content">
+                    <article className="hit1 hit2">
+                        <figure className="hitimg">
+                            <img className="hit1img" src="./images/mon2.jpg" alt="" />
+                            <img className="hitWrapper" src="./images/hitborderV-blue.png" alt="" />
+                        </figure>
+                        <div className="hit1ContentWrapper">
+                            <div id="line1"><img src="./images/FileLineMain-blue.svg" alt="" /></div>
+                            <div className="lineBlockFill hitborder"><img src="./images/FileLineBlockStrike-blue.svg" alt="" /></div>
+                            <div className="lineBlockStr hitborder"><img src="./images/FileLineBlockFill-blue.svg" alt="" /></div>
+                            <div className="hitR hitborder"><img src="./images/FileContentBlock.svg" alt="" /></div>
+                            <div className="hitL1 hitborder"><img src="./images/FileContentBlock01.svg" alt="" /></div>
+                            <div className="hitL2 hitborder"><img src="./images/FileContentBlock02.svg" alt="" /></div>
+                            <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
+                            <div className="hit1Content hitContent">
                                 <h3>Creeper</h3>
-                                <p>predatory/mammal/migratory</p>
+                                <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p>-2024/10/28</p>
+                                <p className="time">-2024/11/21</p>
                             </div>
                         </div>
                     </article>
-                    <article className="hit3">
-                        <figure className="hit3img"></figure>
-                        <div className="hit3ContentWrapper">
-                            <div id="line3"></div>
-                            <div className="hit3Content">
+                    <article className="hit1">
+                        <figure className="hitimg">
+                            <img className="hit1img" src="./images/mon3.jpg" alt="" />
+                            <img className="hitWrapper" src="./images/hitborderV-blue.png" alt="" />
+                        </figure>
+                        <div className="hit1ContentWrapper">
+                            <div id="line1"><img src="./images/FileLineMain-blue.svg" alt="" /></div>
+                            <div className="lineBlockFill hitborder"><img src="./images/FileLineBlockStrike-blue.svg" alt="" /></div>
+                            <div className="lineBlockStr hitborder"><img src="./images/FileLineBlockFill-blue.svg" alt="" /></div>
+                            <div className="hitR hitborder"><img src="./images/FileContentBlock.svg" alt="" /></div>
+                            <div className="hitL1 hitborder"><img src="./images/FileContentBlock01.svg" alt="" /></div>
+                            <div className="hitL2 hitborder"><img src="./images/FileContentBlock02.svg" alt="" /></div>
+                            <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
+                            <div className="hit1Content hitContent">
                                 <h3>Creeper</h3>
-                                <p>predatory/mammal/migratory</p>
+                                <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p>-2024/6/4</p>
+                                <p className="time">-2024/11/21</p>
                             </div>
                         </div>
                     </article>
@@ -94,7 +119,7 @@ export default function Home() {
                         </figure>
                         <h2 className="h2main">
                             NEWS
-                            <h2 className="h2bottom">NEWS</h2>
+                            <p className="h2bottom">NEWS</p>
                         </h2>
 
                         <figure id="newsBottom">
@@ -125,7 +150,7 @@ export default function Home() {
                     <header className="title">
                         <h2 className="h2main">
                             ABOUT
-                            <h2 className="h2bottom">ABOUT</h2>
+                            <p className="h2bottom">ABOUT</p>
                         </h2>
                     </header>
                     <hr id="hr1" />
@@ -134,24 +159,24 @@ export default function Home() {
                         <div className="aboutCircle">
                             <p className="pTop">
                                 Bio
-                                <div className="circle pTopcircle1"></div>
-                                <div className="circle circleb pTopcircle1b"></div>
+                                <span className="circle pTopcircle1"></span>
+                                <span className="circle circleb pTopcircle1b"></span>
                                 <span className="pBottom">Bio</span>
                             </p>
                         </div>
                         <div className="aboutCircle aboutCircleM">
                             <p className="pTop">
                                 Monster
-                                <div className="circle pTopcircle2"></div>
-                                <div className="circle circleb pTopcircle2b"></div>
+                                <span className="circle pTopcircle2"></span>
+                                <span className="circle circleb pTopcircle2b"></span>
                                 <span className="pBottom">Monster</span>
                             </p>
                         </div>
                         <div className="aboutCircle">
                             <p className="pTop">
                                 Myth
-                                <div className="circle pTopcircle3"></div>
-                                <div className="circle circleb pTopcircle3b"></div>
+                                <span className="circle pTopcircle3"></span>
+                                <span className="circle circleb pTopcircle3b"></span>
                                 <span className="pBottom">Myth</span>
                             </p>
                         </div>

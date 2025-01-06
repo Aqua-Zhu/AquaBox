@@ -153,11 +153,10 @@ body {
 // HIT區
 #hit {
     .title {
+        margin-bottom: 200px;
         #hitTop {
             width: 50%;
             position: relative;
-
-            // .titleTop1 {}
 
             .titleTop2 {
                 position: absolute;
@@ -189,21 +188,118 @@ body {
         }
     }
     article{
-        margin-top: 60px;
+        margin: 60px 10%;
     }
     .hit1{
         display: flex;
-        .hit1img{
-            width: 40%;
+        
+        .hitimg{
+            width: 50%;
+            position: relative;
+            .hit1img{
+                mask-image: url(./images/hitmask.png);
+                mask-size: contain;
+                mask-repeat: no-repeat;
+            }
+            .hitWrapper{
+                position: absolute;
+                width: 86%;
+                top: -2.5%;
+                left: -2.8%;
+            }
+        }
+
+        .hit1ContentWrapper{
+            // margin-left: 10%;
+            position: relative;
+            width:40%;
+            #line1{
+                position: absolute;
+                width: 130%;
+                left: -5%;
+            }
+            .lineBlockFill{
+                top: 3%;
+                left: -16%;
+            }
+            .lineBlockStr{
+                top: 3%;
+                left: 0;
+            }
+
+            .hitborder{
+                position: absolute;
+            }
+            .hitR{
+                top: 9%;
+                left: 5%;
+            }
+            .hitL1{
+                bottom: 30%;
+                right: -15%;
+            }
+            .hitL2{
+                bottom: 20%;
+                right: -15%;
+            }
+            .hitL3{
+                bottom: 13%;
+                right: -15%;
+            }
+
+            .hit1Content{
+                width: 100%;
+                margin:20% 10% 0;
+                font-family: 'NicoMoji';
+                color: $color-font-green;
+                background-image: url(./images/FileContentMain.svg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                // width: 50%;
+                height: 450px;
+                h3{
+                    font-size: $font-size-ex-hitTitle;
+                    padding-top: 8%;
+                    padding-left: 5%;
+                }
+                .type{
+                    padding-left: 12%;
+                    line-height: 2.5rem;
+                    font-size:$font-size-xl;
+                }
+                p{
+                    padding: 0 10% 0 20%;
+                    line-height: 1.6rem;
+                }
+                .time{
+                    line-height: 4rem;
+                    text-align: end;
+                }
+            }
+        } 
+    }
+    .hit2{
+        transform: rotateY(180deg);
+        h3,p{
+            transform: rotateY(180deg);
         }
         .hit1ContentWrapper{
-            background-image: url(./images/FileContentMain.svg);
-            background-size: 100%;
-            
-            background-repeat: no-repeat;
-            width: 40%;
-            margin-left: 10%;
-        } 
+            .hit1Content{
+                h3{
+                    padding-left: 15%;
+                }
+                .type{
+                    padding-left: 20%;
+                    line-height: 2.5rem;
+                }
+                p{
+                    padding-left: 15%;
+                }
+                .time{
+                    text-align: start;
+                }
+            }
+        }
     }
 }
 
