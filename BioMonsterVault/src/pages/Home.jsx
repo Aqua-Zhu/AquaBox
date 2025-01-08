@@ -1,13 +1,65 @@
 import { Link } from "react-router-dom";
 import Rain from "../component/Rain";
+import { useEffect, useRef } from "react";
+import $ from 'jquery';
+import ToTop from "../component/Totop";
 export default function Home() {
+
+    
+    // 當Rain碰到aboutRef頂端就停下
+    // const RainStop =()=>{
+    //     var setFixed = document.getElementById('rain');
+    // }
+
+    // $(function () {
+    //     var rain = $('#rain');
+    //     var About = $('#about')
+    //     // var rainBottom = rain.offset().bottom;
+    //     $(window).on('scroll', function () {
+    //         if($(window).scrollTop() > About.offset().Top){
+    //             rain.css({ top: '0', position: 'relative' })
+    //         } else {
+    //             rain.css({top:'auto',position:'fixed'})
+    //         }
+    //     })
+    // })
+/* 滾動到每個頁面讓它停留一秒 */
+// const rainRef = useRef(null) // 用來參考主容器
+// const aboutRef = useRef(false); // 紀錄是否已到達目標位置
+
+// useEffect(() => {
+//     const handleScrollAll = () => {
+//         const targetPosition = window.innerHeight; //畫面中卷軸的長度
+//         const currentScroll = window.scrollY;
+
+//         if (!isAtTarget.current) {
+//             // 如果未到達目標位置
+//             if (currentScroll >= targetPosition) {
+//                 window.scrollTo(0, targetPosition); // 固定滾動到目標位置
+//                 isAtTarget.current = true; // 標記為已到達
+//                 document.body.style.overflow = "hidden"; // 鎖住滾動
+
+//                 setTimeout(() => {
+//                     document.body.style.overflow = "auto"; // 解鎖滾動
+//                 }, 1000); // 停留時間（1秒）
+//             }
+//         }
+//     };
+
+//     document.body.style.overflow = "auto"; // 初始設置：滾動
+//     window.addEventListener("scroll", handleScrollAll);
+
+//     return () => {
+//         window.removeEventListener("scroll", handleScrollAll); // 清理事件
+//     };
+// }, []);
+
 
 
 
     return (
         <>
             {/* 頁首區 */}
-            {/* <Rain/> */}
             <div id="topbar">
                 <h1><Link to='/'><img src="" alt="" />Biomonster Vault</Link></h1>
                 <nav>
@@ -19,6 +71,10 @@ export default function Home() {
                     </ul>
                 </nav>
             </div>
+            <Rain/>
+            {/* <canvas id="rain" ref={rainRef}></canvas> */}
+            {/* totop */}
+            <ToTop/>
             {/* Banner區 */}
             <header id="banner">
                 <img src="./images/banner-border.png" alt="" />
@@ -121,9 +177,7 @@ export default function Home() {
                         </figure>
                         <h2 className="h2main">
                             NEWS
-
                         </h2>
-
                         <figure id="newsBottom">
                             <img src="./images/TitleBottomLong-blue.svg" alt="" />
                         </figure>
@@ -143,7 +197,7 @@ export default function Home() {
                             </div>
 
                         </div>
-                        <figure className="newsImg1">
+                        <figure className="newsImg">
                             <img className="ship" src="./images/ship1.jpg" alt="" />
                             <div className="shipwrapper">
                                 <img src="./images/NewsImgBorder.svg" alt="" />
@@ -166,7 +220,7 @@ export default function Home() {
                                 <img className="newsborder BorderL01" src="./images/NewsImgBorderL01.svg" alt="" />
                                 <img className="newsborder BorderL02" src="./images/NewsImgBorderL02.svg" alt="" />
                                 <img className="newsborder BorderL03" src="./images/NewsImgBorderL03.svg" alt="" />
-                                
+
 
                                 <img className="newsborder BorderR01" src="./images/NewsImgBorderR01.svg" alt="" />
                                 <img className="newsborder BorderR02" src="./images/NewsImgBorderR02.svg" alt="" />
@@ -193,7 +247,7 @@ export default function Home() {
                             </div>
 
                         </div>
-                        <figure className="newsImg1">
+                        <figure className="newsImg">
                             <img className="ship" src="./images/ship2.jpg" alt="" />
                             <div className="shipwrapper">
                                 <img src="./images/NewsImgBorder.svg" alt="" />
@@ -216,7 +270,7 @@ export default function Home() {
                                 <img className="newsborder BorderL01" src="./images/NewsImgBorderL01.svg" alt="" />
                                 <img className="newsborder BorderL02" src="./images/NewsImgBorderL02.svg" alt="" />
                                 <img className="newsborder BorderL03" src="./images/NewsImgBorderL03.svg" alt="" />
-                                
+
 
                                 <img className="newsborder BorderR01" src="./images/NewsImgBorderR01.svg" alt="" />
                                 <img className="newsborder BorderR02" src="./images/NewsImgBorderR02.svg" alt="" />
@@ -243,7 +297,7 @@ export default function Home() {
                             </div>
 
                         </div>
-                        <figure className="newsImg1">
+                        <figure className="newsImg">
                             <img className="ship" src="./images/ship3.jpg" alt="" />
                             <div className="shipwrapper">
                                 <img src="./images/NewsImgBorder.svg" alt="" />
@@ -266,7 +320,7 @@ export default function Home() {
                                 <img className="newsborder BorderL01" src="./images/NewsImgBorderL01.svg" alt="" />
                                 <img className="newsborder BorderL02" src="./images/NewsImgBorderL02.svg" alt="" />
                                 <img className="newsborder BorderL03" src="./images/NewsImgBorderL03.svg" alt="" />
-                                
+
 
                                 <img className="newsborder BorderR01" src="./images/NewsImgBorderR01.svg" alt="" />
                                 <img className="newsborder BorderR02" src="./images/NewsImgBorderR02.svg" alt="" />
@@ -288,7 +342,8 @@ export default function Home() {
                         <img id="circle5" src="./images/more-circle5.svg" alt="" className="" />
                     </button>
                 </section>
-                <section id="about">
+                {/* <Rain/> */}
+                <section id="about" /*ref={aboutRef}*/>
                     <header className="title">
                         <h2 className="h2main">
                             ABOUT

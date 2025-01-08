@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Rain() {
+    const rainRef=useRef(null)
     useEffect(()=>{
             // Initialising the canvas
     var canvas = document.querySelector('canvas');
@@ -46,7 +47,7 @@ export default function Rain() {
 
     return (
         <>
-            <canvas></canvas>
+            <canvas id="rain" ref={rainRef}></canvas>
         </>
     )
 
