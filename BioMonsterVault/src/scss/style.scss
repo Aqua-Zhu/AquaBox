@@ -48,6 +48,12 @@ body {
     }
 }
 
+canvas {
+    width: 100%;
+    display: block;
+    position: fixed;
+}
+
 // 導覽列
 #topbar {
     width: 96%;
@@ -364,7 +370,7 @@ body {
         }
     }
 
-    #news-1 {
+    .newsContent {
         margin: 10%;
 
         .newsLine1 {
@@ -436,7 +442,7 @@ body {
         }
 
         .newsImg1 {
-            margin-top: 100px;
+            margin-top: 40px;
             padding-left: 20%;
             width: 90%;
             position: relative;
@@ -455,105 +461,193 @@ body {
                     position: absolute;
                     width: 20%;
                 }
+
                 //R
                 .BorderR01 {
                     width: 4%;
                     top: 30%;
                     right: 0;
                 }
+
                 .BorderR02 {
                     width: 4%;
                     top: 44%;
                     right: 0;
                 }
+
                 .BorderR03 {
                     width: 4%;
                     top: 55%;
                     right: 0;
                 }
+
                 //B1
-                .BorderBMain{
+                .BorderBMain {
                     width: 50%;
                     bottom: 0;
                     right: -5%;
                 }
-                .BorderB1-1{
+
+                .BorderB1-1 {
                     width: 4%;
                     bottom: 1.5%;
                     right: 10%;
                 }
-                .BorderB1-2{
+
+                .BorderB1-2 {
                     width: 4.8%;
                     bottom: 1.5%;
                     right: 12%;
                 }
-                .BorderB1-3{
+
+                .BorderB1-3 {
                     width: 4.8%;
                     bottom: 1.5%;
                     right: 15%;
                 }
-                .BorderB1-4{
+
+                .BorderB1-4 {
                     width: 31%;
                     bottom: 1.7%;
                     right: 18%;
                 }
+
                 //B2
-                .BorderB2-1{
+                .BorderB2-1 {
                     width: 25%;
                     bottom: 1%;
                     left: 38%;
                 }
-                .BorderB2-2{
+
+                .BorderB2-2 {
                     width: 8%;
                     bottom: 1%;
                     left: 34%;
                 }
-                .BorderB2-3{
+
+                .BorderB2-3 {
                     width: 8%;
                     bottom: 1%;
                     left: 30%;
                 }
+
                 //L
-                .BorderLMain{
+                .BorderLMain {
                     top: 18%;
                     left: -7%;
                     width: 11%;
                 }
-                .BorderL01{
+
+                .BorderL01 {
                     top: 70%;
                     left: -6%;
                     width: 2%;
                 }
-                .BorderL02{
+
+                .BorderL02 {
                     top: 62%;
                     left: -6%;
                     width: 2%;
                 }
-                .BorderL03{
+
+                .BorderL03 {
                     top: 50%;
                     left: -6%;
                     width: 2%;
                 }
-                .BorderLB{
+
+                .BorderLB {
                     top: 38%;
                     left: -10%;
                     width: 25%;
                 }
-                .BorderLB2{
+
+                .BorderLB2 {
                     bottom: -10%;
                     left: 0%;
                     width: 45%;
                 }
+
                 //T
                 .BorderT {
                     position: absolute;
                     top: -5%;
                     right: -5%;
-                    
+
                 }
             }
         }
     }
+}
+
+//moreline
+#moreLine {
+    width: 18%;
+    margin-left: 45%;
+}
+
+//more-btn
+#moreBtn {
+    margin-left: 65%;
+    margin-bottom: 300px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-main-blue;
+    width: 22%;
+    height: 30vh;
+    font-family: 'Linebeam';
+    font-size: $font-size-xxxxl;
+    cursor: pointer;
+
+    img {
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+
+    #circle1 {
+        width: 60%;
+        top: 50%;
+        left: 50%;
+    }
+
+    #circle2 {
+        width: 80%;
+        top: 50%;
+        left: 50%;
+    }
+
+    #circle3 {
+        width: 90%;
+        top: 50%;
+        left: 50%;
+    }
+
+    #circle4 {
+        width: 100%;
+        top: 50%;
+        left: 50%;
+    }
+
+    #circle5 {
+        width: 95%;
+        top: 90%;
+        left: 70%;
+    }
+
+    // #circle1{
+    //     width: 75%;
+    //     top: 6%;
+    //     right: 12%;
+    // }
+    // #circle2{
+    //     width: 90%;
+    //     top: 2%;
+    //     right: 3%;
+    // }
 }
 
 // ABOUT區
@@ -713,6 +807,18 @@ footer {
         li {
             margin: 0 35px;
             font-family: 'NicoMoji';
+            font-size: $font-size-xxl;
+            border-bottom: 3px solid transparent;
+            transition: .5s;
+
+            &:hover {
+                border-bottom: 3px solid black;
+            }
         }
+    }
+
+    small {
+        text-align: center;
+        // padding-top: 5vh;
     }
 }

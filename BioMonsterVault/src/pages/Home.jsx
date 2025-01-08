@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Rain from "../component/Rain";
 export default function Home() {
 
 
@@ -6,6 +7,7 @@ export default function Home() {
     return (
         <>
             {/* 頁首區 */}
+            {/* <Rain/> */}
             <div id="topbar">
                 <h1><Link to='/'><img src="" alt="" />Biomonster Vault</Link></h1>
                 <nav>
@@ -126,7 +128,7 @@ export default function Home() {
                             <img src="./images/TitleBottomLong-blue.svg" alt="" />
                         </figure>
                     </header>
-                    <article id="news-1">
+                    <article className="newsContent" id="news-1">
                         <div className="newsLine1">
                             <h3 className="newsLine1Text newsLineText">spaceship</h3>
                             <p className="newsLine1Textsec newsLineText">12.02.24</p>
@@ -176,27 +178,115 @@ export default function Home() {
                         </figure>
 
                     </article>
-                    <article id="news-2">
-                        <div className="newsLine2">
-                            <h3>spaceship</h3>
-                            <p>12.02.24</p>
+                    <article className="newsContent" id="news-2">
+                        <div className="newsLine1">
+                            <h3 className="newsLine1Text newsLineText">spaceship</h3>
+                            <p className="newsLine1Textsec newsLineText">11.25.24</p>
+                            <div className="topping">
+                                <img className="shipblock" src="./images/NewsTitleMain.svg" alt="" />
+                                <img className="NewsTitle01" src="./images/NewsTitle01.svg" alt="" />
+                                <img className="NewsTitle02" src="./images/NewsTitle02.svg" alt="" />
+                                <img className="NewsTitle03" src="./images/NewsTitle03.svg" alt="" />
+                                <img className="FileLineBlockStrike" src="./images/FileLineBlockStrike-blue.svg" alt="" />
+                                <img className="FileLineBlockFill" src="./images/FileLineBlockFill-blue.svg" alt="" />
+                                <img className="NewsTitleLine" src="./images/NewsTitleLine.svg" alt="" />
+                            </div>
+
                         </div>
-                        <figure className="newsImg2">
-                            <img src="" alt="" />
+                        <figure className="newsImg1">
+                            <img className="ship" src="./images/ship2.jpg" alt="" />
+                            <div className="shipwrapper">
+                                <img src="./images/NewsImgBorder.svg" alt="" />
+
+                                <img className="newsborder BorderBMain" src="./images/NewsImgBorderBMain.svg" alt="" />
+                                <img className="newsborder BorderB1-1" src="./images/NewsImgBorderB1-1.svg" alt="" />
+                                <img className="newsborder BorderB1-2" src="./images/NewsImgBorderB1-2.svg" alt="" />
+                                <img className="newsborder BorderB1-3" src="./images/NewsImgBorderB1-3.svg" alt="" />
+                                <img className="newsborder BorderB1-4" src="./images/NewsImgBorderB1-4.svg" alt="" />
+
+
+                                <img className="newsborder BorderB2-1" src="./images/NewsImgBorderB2-1.svg" alt="" />
+                                <img className="newsborder BorderB2-2" src="./images/NewsImgBorderB2-2.svg" alt="" />
+                                <img className="newsborder BorderB2-3" src="./images/NewsImgBorderB2-3.svg" alt="" />
+
+
+                                <img className="newsborder BorderLB" src="./images/NewsImgBorderLB.svg" alt="" />
+                                <img className="newsborder BorderLB2" src="./images/NewsImgBorderB1-4.svg" alt="" />
+                                <img className="newsborder BorderLMain" src="./images/NewsImgBorderLMain.svg" alt="" />
+                                <img className="newsborder BorderL01" src="./images/NewsImgBorderL01.svg" alt="" />
+                                <img className="newsborder BorderL02" src="./images/NewsImgBorderL02.svg" alt="" />
+                                <img className="newsborder BorderL03" src="./images/NewsImgBorderL03.svg" alt="" />
+                                
+
+                                <img className="newsborder BorderR01" src="./images/NewsImgBorderR01.svg" alt="" />
+                                <img className="newsborder BorderR02" src="./images/NewsImgBorderR02.svg" alt="" />
+                                <img className="newsborder BorderR03" src="./images/NewsImgBorderR03.svg" alt="" />
+
+                                <img className="newsborder BorderT" src="./images/NewsImgBorderT.svg" alt="" />
+
+                            </div>
                         </figure>
 
                     </article>
-                    <article id="news-3">
-                        <div className="newsLine3">
-                            <h3>spaceship</h3>
-                            <p>12.02.24</p>
+                    <article className="newsContent" id="news-3">
+                        <div className="newsLine1">
+                            <h3 className="newsLine1Text newsLineText">spaceship</h3>
+                            <p className="newsLine1Textsec newsLineText">11.22.24</p>
+                            <div className="topping">
+                                <img className="shipblock" src="./images/NewsTitleMain.svg" alt="" />
+                                <img className="NewsTitle01" src="./images/NewsTitle01.svg" alt="" />
+                                <img className="NewsTitle02" src="./images/NewsTitle02.svg" alt="" />
+                                <img className="NewsTitle03" src="./images/NewsTitle03.svg" alt="" />
+                                <img className="FileLineBlockStrike" src="./images/FileLineBlockStrike-blue.svg" alt="" />
+                                <img className="FileLineBlockFill" src="./images/FileLineBlockFill-blue.svg" alt="" />
+                                <img className="NewsTitleLine" src="./images/NewsTitleLine.svg" alt="" />
+                            </div>
+
                         </div>
-                        <figure className="newsImg3">
-                            <img src="" alt="" />
+                        <figure className="newsImg1">
+                            <img className="ship" src="./images/ship3.jpg" alt="" />
+                            <div className="shipwrapper">
+                                <img src="./images/NewsImgBorder.svg" alt="" />
+
+                                <img className="newsborder BorderBMain" src="./images/NewsImgBorderBMain.svg" alt="" />
+                                <img className="newsborder BorderB1-1" src="./images/NewsImgBorderB1-1.svg" alt="" />
+                                <img className="newsborder BorderB1-2" src="./images/NewsImgBorderB1-2.svg" alt="" />
+                                <img className="newsborder BorderB1-3" src="./images/NewsImgBorderB1-3.svg" alt="" />
+                                <img className="newsborder BorderB1-4" src="./images/NewsImgBorderB1-4.svg" alt="" />
+
+
+                                <img className="newsborder BorderB2-1" src="./images/NewsImgBorderB2-1.svg" alt="" />
+                                <img className="newsborder BorderB2-2" src="./images/NewsImgBorderB2-2.svg" alt="" />
+                                <img className="newsborder BorderB2-3" src="./images/NewsImgBorderB2-3.svg" alt="" />
+
+
+                                <img className="newsborder BorderLB" src="./images/NewsImgBorderLB.svg" alt="" />
+                                <img className="newsborder BorderLB2" src="./images/NewsImgBorderB1-4.svg" alt="" />
+                                <img className="newsborder BorderLMain" src="./images/NewsImgBorderLMain.svg" alt="" />
+                                <img className="newsborder BorderL01" src="./images/NewsImgBorderL01.svg" alt="" />
+                                <img className="newsborder BorderL02" src="./images/NewsImgBorderL02.svg" alt="" />
+                                <img className="newsborder BorderL03" src="./images/NewsImgBorderL03.svg" alt="" />
+                                
+
+                                <img className="newsborder BorderR01" src="./images/NewsImgBorderR01.svg" alt="" />
+                                <img className="newsborder BorderR02" src="./images/NewsImgBorderR02.svg" alt="" />
+                                <img className="newsborder BorderR03" src="./images/NewsImgBorderR03.svg" alt="" />
+
+                                <img className="newsborder BorderT" src="./images/NewsImgBorderT.svg" alt="" />
+
+                            </div>
                         </figure>
 
                     </article>
-                    <button id="moreBtn">MORE</button>
+
+                    <figure><img id="moreLine" src="./images/more-line.svg" alt="" /></figure>
+                    <button id="moreBtn">MORE
+                        <img id="circle1" src="./images/more-circle1.svg" alt="" className="" />
+                        <img id="circle2" src="./images/more-circle2.svg" alt="" className="" />
+                        <img id="circle3" src="./images/more-circle3.svg" alt="" className="" />
+                        <img id="circle4" src="./images/more-circle4.svg" alt="" className="" />
+                        <img id="circle5" src="./images/more-circle5.svg" alt="" className="" />
+                    </button>
                 </section>
                 <section id="about">
                     <header className="title">
@@ -252,6 +342,7 @@ export default function Home() {
                             <li><Link>ABOUT</Link></li>
                         </ul>
                         <h2><Link to='/'><img src="" alt="" />Biomonster Vault</Link></h2>
+                        <small>copyright &copy; 2025 BiomonsterVault </small>
                     </footer>
                 </section>
             </main>
