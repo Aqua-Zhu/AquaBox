@@ -1,80 +1,94 @@
 import { Link } from "react-router-dom";
 import Rain from "../component/Rain";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import $ from 'jquery';
-import ToTop from "../component/Totop";
+import TapbarToTop from "../component/TapbarToTop";
+
 export default function Home() {
 
-    
-    // 當Rain碰到aboutRef頂端就停下
-    // const RainStop =()=>{
-    //     var setFixed = document.getElementById('rain');
-    // }
+    const hitRef = useRef(null);
+    const newsRef = useRef(null);
+    const aboutRef = useRef(null);
 
-    // $(function () {
-    //     var rain = $('#rain');
-    //     var About = $('#about')
-    //     // var rainBottom = rain.offset().bottom;
-    //     $(window).on('scroll', function () {
-    //         if($(window).scrollTop() > About.offset().Top){
-    //             rain.css({ top: '0', position: 'relative' })
-    //         } else {
-    //             rain.css({top:'auto',position:'fixed'})
-    //         }
-    //     })
-    // })
-/* 滾動到每個頁面讓它停留一秒 */
-// const rainRef = useRef(null) // 用來參考主容器
-// const aboutRef = useRef(false); // 紀錄是否已到達目標位置
+    const resetStyle = {
+        display: "none"
+    }
+    const [buttonStyle, setButtonStyle] = useState(resetStyle);
+    const [topbarStyle, setTopbarStyle] = useState(resetStyle);
+    // 預設置頂按鈕隱藏，之後判斷何時出現
 
-// useEffect(() => {
-//     const handleScrollAll = () => {
-//         const targetPosition = window.innerHeight; //畫面中卷軸的長度
-//         const currentScroll = window.scrollY;
+    const handleScroll = () => {
+        const windowTop = window.innerHeight + 10; //window.innerHeight = 100ㄘ
+        if (window.scrollY >= windowTop) {
+            setButtonStyle({
+                display: "flex",
+                animation: "shine .2s linear ",
+            })
+            setTopbarStyle({
+                display: "flex",
+                animation: "shineTopbar .4s linear ",
+            })
+        } else {
+            setButtonStyle(resetStyle);
+            setTopbarStyle(resetStyle);
+        }
+    };
 
-//         if (!isAtTarget.current) {
-//             // 如果未到達目標位置
-//             if (currentScroll >= targetPosition) {
-//                 window.scrollTo(0, targetPosition); // 固定滾動到目標位置
-//                 isAtTarget.current = true; // 標記為已到達
-//                 document.body.style.overflow = "hidden"; // 鎖住滾動
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
-//                 setTimeout(() => {
-//                     document.body.style.overflow = "auto"; // 解鎖滾動
-//                 }, 1000); // 停留時間（1秒）
-//             }
-//         }
-//     };
-
-//     document.body.style.overflow = "auto"; // 初始設置：滾動
-//     window.addEventListener("scroll", handleScrollAll);
-
-//     return () => {
-//         window.removeEventListener("scroll", handleScrollAll); // 清理事件
-//     };
-// }, []);
-
-
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    const scrollToHit = () => {
+        window.scrollTo({
+            top: hitRef.current.offsetTop,
+            behavior: 'smooth',
+        })
+    }
+    const scrollToNews = () => {
+        window.scrollTo({
+            top: newsRef.current.offsetTop,
+            behavior: 'smooth',
+        })
+    }
+    const scrollToAbout = () => {
+        window.scrollTo({
+            top: aboutRef.current.offsetTop,
+            behavior: 'smooth',
+        })
+    }
 
 
     return (
         <>
-            {/* 頁首區 */}
-            <div id="topbar">
-                <h1><Link to='/'><img src="" alt="" />Biomonster Vault</Link></h1>
+            {/* backgrou */}
+            <Rain />
+            {/* topbar & totop */}
+            {/* <TapbarToTop aboutRef={aboutRef} newsRef={newsRef} hitRef={hitRef} /> */}
+            <div id="topbar" style={topbarStyle}>
+                <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
                 <nav>
                     <ul>
-                        <li><Link>HIT</Link></li>
-                        <li><Link>NEWS</Link></li>
-                        <li><Link>POST</Link></li>
-                        <li><Link>ABOUT</Link></li>
+                        <li><Link onClick={scrollToHit}>HIT</Link></li>
+                        <li><Link onClick={scrollToNews} >NEWS</Link></li>
+                        <li><Link to='/post'>POST</Link></li>
+                        <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                     </ul>
                 </nav>
             </div>
-            <Rain/>
-            {/* <canvas id="rain" ref={rainRef}></canvas> */}
-            {/* totop */}
-            <ToTop/>
+            <div className="toTop" style={buttonStyle} >
+                <button className="toTop-btn" onClick={scrollToTop}>
+                    <img src="./images/TopBtnLight.svg" alt="" />
+                </button>
+            </div>
+
+
+
             {/* Banner區 */}
             <header id="banner">
                 <img src="./images/banner-border.png" alt="" />
@@ -87,7 +101,7 @@ export default function Home() {
             </header>
             <main>
                 {/* hit */}
-                <section id="hit">
+                <section id="hit" ref={hitRef}>
                     <header className="title">
                         <figure id="hitTop">
                             <img src="./images/TitleWrapperShort.svg" className="titleTop1"></img>
@@ -95,10 +109,10 @@ export default function Home() {
                             <img src="./images/TitleChargeShort.svg" className="titleTop3"></img>
                         </figure>
 
-                        <h2 className="h2main">
-                            HIT
+                        <div className="titlewrapper">
+                            <h2 className="h2main">HIT</h2>
                             <p className="h2bottom">HIT</p>
-                        </h2>
+                        </div>
 
                         <figure id="hitBottom">
                             <img src="./images/TitleBottomLong.svg" alt="" className="titleBottom" />
@@ -170,14 +184,15 @@ export default function Home() {
                         </div>
                     </article>
                 </section>
-                <section id="news">
+                <section id="news" ref={newsRef}>
                     <header className="title">
                         <figure id="newsTop">
                             <img src="./images/TitleTopShort-blue.svg" alt="" />
                         </figure>
-                        <h2 className="h2main">
-                            NEWS
-                        </h2>
+                        <div className="titlewrapper">
+                            <h2 className="h2main"> NEWS</h2>
+                            <p className="h2bottom">NEWS</p>
+                        </div>
                         <figure id="newsBottom">
                             <img src="./images/TitleBottomLong-blue.svg" alt="" />
                         </figure>
@@ -343,12 +358,10 @@ export default function Home() {
                     </button>
                 </section>
                 {/* <Rain/> */}
-                <section id="about" /*ref={aboutRef}*/>
+                <section id="about" ref={aboutRef}>
                     <header className="title">
-                        <h2 className="h2main">
-                            ABOUT
-                            <p className="h2bottom">ABOUT</p>
-                        </h2>
+                        <h2 className="h2main"> ABOUT</h2>
+                        <p className="h2bottom">ABOUT</p>
                     </header>
                     <hr id="hr1" />
                     <hr id="hr2" />
@@ -391,12 +404,12 @@ export default function Home() {
                     </div>
                     <footer>
                         <ul>
-                            <li><Link>HIT</Link></li>
-                            <li><Link>NEWS</Link></li>
-                            <li><Link>POST</Link></li>
-                            <li><Link>ABOUT</Link></li>
+                            <li><Link onClick={scrollToHit}>HIT</Link></li>
+                            <li><Link onClick={scrollToNews} >NEWS</Link></li>
+                            <li><Link >POST</Link></li>
+                            <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                         </ul>
-                        <h2><Link to='/'><img src="" alt="" />Biomonster Vault</Link></h2>
+                        <h2><Link to='/' onClick={scrollToTop}><img src="./images/LOGO-B.svg" alt="" />Biomonster Vault</Link></h2>
                         <small>copyright &copy; 2025 BiomonsterVault </small>
                     </footer>
                 </section>

@@ -24,28 +24,43 @@ body {
     color: white;
 }
 
+::-webkit-scrollbar {
+    //捲軸
+    width: 10px; //垂直捲軸寬
+    background-color: $color-main-yBg;
+}
+
+::-webkit-scrollbar-thumb {
+    //捲軸手柄
+    background-color: $color-main-yellow ;
+    border-radius: 5px;
+}
+
 .title {
     margin-top: 200px;
     overflow: hidden;
 
-    h2 {
+    .titlewrapper {
+        position: relative;
         font-size: $font-size-ex-title;
         font-family: 'Linebeam';
-        position: relative;
         text-align: center;
+
+        .h2main {
+            margin: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .h2bottom {
+            position: absolute;
+            z-index: 5;
+            width: 100%;
+            top: 12px;
+            left: 10px;
+        }
     }
 
-    .h2bottom {
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        top: 12px;
-        left: 10px;
-    }
-
-    .h2main {
-        margin: 40px 0;
-    }
 }
 
 #rain {
@@ -55,13 +70,14 @@ body {
     position: fixed;
 }
 
-.toTop{
+.toTop {
     position: fixed;
     z-index: 99;
     bottom: 5%;
     right: 1%;
-    
-    .toTop-btn{
+    // display: none;
+
+    .toTop-btn {
         width: 70%;
         background-color: transparent;
         border: none;
@@ -77,14 +93,21 @@ body {
     margin: 2%;
     position: fixed;
     z-index: 999;
-
+    align-items: center;
+    img{
+        width:$font-size-xxxxl;
+        margin-right: 15px;
+    }
     a {
         color: $color-main-yellow;
+        display: flex;
+        align-items: center;
     }
 
     h1 {
         font-family: 'Linebeam';
-        font-size: $font-size-xxl;
+        font-size: $font-size-xxxl;
+        
     }
 
     nav {
@@ -107,7 +130,6 @@ body {
     justify-content: center;
     align-items: center;
 
-    // position: relative;
     h2 {
         position: absolute;
         font-family: 'Linebeam';
@@ -199,11 +221,13 @@ body {
         h2 {
             color: $color-main-yellow;
             letter-spacing: $font-size-xxxxl;
-
-            .h2bottom {
-                color: $color-main-yBg;
-            }
         }
+
+        .h2bottom {
+            color: $color-main-yBg;
+            letter-spacing: $font-size-xxxxl;
+        }
+
 
         #hitBottom {
             width: 60%;
@@ -289,7 +313,7 @@ body {
 
                 .lineBlockFill {
                     top: -20%;
-                    left: -5%;
+                    left: -9%;
                 }
 
                 .lineBlockStr {
@@ -333,8 +357,8 @@ body {
         .hit1ContentWrapper {
             .hit1Content {
                 background-image: url(./images/FileContentMain-yellow.png);
-                background-size: cover;
-                background-position: center;
+                background-size: contain;
+                // background-position: center;
 
                 h3 {
                     padding-left: 15%;
@@ -356,9 +380,11 @@ body {
         }
     }
 }
-.hitimg{
+
+.hitimg {
     transition: .5s;
 }
+
 // NEWS區
 #news {
     .newsLineText {
@@ -376,10 +402,11 @@ body {
         h2 {
             letter-spacing: 5rem;
             color: $color-main-blue;
+        }
 
-            .h2bottom {
-                color: $color-main-yellow;
-            }
+        .h2bottom {
+            letter-spacing: 5rem;
+            color: $color-main-yellow;
         }
 
         #newsBottom {
@@ -641,7 +668,7 @@ body {
         width: 20%;
         top: 35%;
         left: 51%;
-        animation: morebtn 5s linear  infinite;
+        animation: morebtn 5s linear infinite;
     }
 
     #circle3 {
@@ -661,21 +688,24 @@ body {
         top: 90%;
         left: 70%;
     }
-    &:hover{
-        #circle1{
 
-            animation: shine 3s linear  infinite;
+    &:hover {
+        #circle1 {
+
+            animation: shine 3s linear infinite;
         }
-        #circle2{
+
+        #circle2 {
             width: 80%;
             top: -10%;
             left: 11%;
-            animation: morebtn 5s linear  infinite;
+            animation: morebtn 5s linear infinite;
         }
-        #circle4{
+
+        #circle4 {
             top: -25%;
             left: -0%;
-            animation: circ3 4s linear  infinite;
+            animation: circ3 4s linear infinite;
         }
 
     }
@@ -689,15 +719,26 @@ body {
     z-index: 50;
 
     .title {
-        h2 {
-            margin-top: 150px;
-            color: white;
+        position: relative;
+        font-size: $font-size-ex-title;
+        font-family: 'Linebeam';
+        text-align: center;
+        letter-spacing: $font-size-ex-m;
+        .h2main {
+            margin:300px 0 40px;
+            position: relative;
+            z-index: 10;
+            color: #000;
+        }
 
-            .h2bottom {
-                margin: 0;
-                color: #000;
-                z-index: 1;
-            }
+        .h2bottom {
+            position: absolute;
+            z-index: 5;
+            width: 100%;
+            top: 60%;
+            left: -10px;
+            margin: 0;
+            color: #fff;
         }
     }
 
@@ -803,7 +844,7 @@ body {
         }
 
         p {
-            padding: 80px 0;
+            padding: 80px 0 200px;
             font-family: 'Inter';
             font-size: $font-size-l;
             font-weight: 900;
@@ -813,28 +854,33 @@ body {
 
 // FOOTER區
 footer {
-    width: 75%;
+    width: 70%;
     height: 25vh;
     background-color: $color-main-yellow;
     border-radius: 0 40px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
+    img{
+        width:$font-size-xxxxl;
+        margin-right: 15px;
+    }
     h2 {
-        margin:10px 0 0 50px ;
+        margin: 10px 0 0 50px;
         font-family: 'NicoMoji';
         font-size: $font-size-xxxxl;
     }
 
     a {
         color: $deep;
+        display: flex;
     }
 
     ul {
         display: flex;
         justify-content: end;
-        margin: 20px 50px 0 ;
+        margin: 20px 50px 0;
 
         li {
             margin: 0 35px;
@@ -852,5 +898,21 @@ footer {
     small {
         text-align: center;
         margin-top: 5vh;
+    }
+}
+
+
+//post
+#post{
+    #member-form{
+        font-family: 'Linebeam';
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20vh 20vh;
+        input[type = "file"]{
+            // display: none;
+        }
     }
 }

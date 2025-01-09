@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 
 export default function Rain() {
+
     const rainRef=useRef(null)
+    
     useEffect(()=>{
-            // Initialising the canvas
+    // Initialising the canvas
     var canvas = document.querySelector('canvas');
     var ctx = canvas.getContext('2d');
 

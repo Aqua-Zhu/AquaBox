@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 300vh; /* 頁面高度，方便滾動測試 */
+    overflow-x: hidden;
+}
+
+.parallax-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../BioMonsterVault/public/images/ship4.jpg) no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 200vh;
+}
+
+.floating-object {
+    margin-top: 60vh;
+    position: absolute;
+    left: 50%;
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    transform: translateX(-50%) scale(0.5); /* 初始縮小 */
+    font-size: 24px;
+    opacity: 1; /* 預設透明 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: opacity, transform;
+}
+.a{
+    margin-top: 60vh;
+}
+.b{
+    margin-top: 250vh;
+}
+.c{
+    margin-top: 180vh;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="parallax-background"></div>
+    <div class="content">
+        <div class="floating-object" data-start="100" data-end="500">物件 1</div>
+        <div class="floating-object" data-start="600" data-end="1000">物件 2</div>
+        <div class="floating-object" data-start="1100" data-end="1500">物件 3</div>
+    </div>
+    <script>
+
+document.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+
+    document.querySelectorAll(".floating-object").forEach((object) => {
+        const start = parseInt(object.dataset.start, 10);
+        const end = parseInt(object.dataset.end, 10);
+        const range = end - start;
+
+        if (scrollTop > start && scrollTop < end) {
+            const progress = (scrollTop - start) / range; // 計算滾動進度 (0~1)
+            object.style.opacity = 1; // 淡入
+            object.style.transform = `translateX(${progress * 50}%) scale(${0.5 + progress * 0.5})`;
+        } else {
+            object.style.opacity = 0; // 淡出
+            object.style.transform = `translateX(0%) scale(0.5)`; // 回到初始位置
+        }
+    });
+});
+
+    </script>
+
+</body>
+</html>
