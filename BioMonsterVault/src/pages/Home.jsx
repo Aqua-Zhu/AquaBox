@@ -69,7 +69,7 @@ export default function Home() {
 
     return (
         <>
-            {/* backgrou */}
+            {/* background */}
             <Rain />
             {/* topbar & totop */}
             {/* <TapbarToTop aboutRef={aboutRef} newsRef={newsRef} hitRef={hitRef} /> */}
