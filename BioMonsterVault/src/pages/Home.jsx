@@ -35,6 +35,8 @@ export default function Home() {
     };
 
     useEffect(() => {
+        window.scrollTo(0,0);
+
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -61,6 +63,7 @@ export default function Home() {
             top: aboutRef.current.offsetTop,
             behavior: 'smooth',
         })
+
     }
 
 
@@ -96,7 +99,7 @@ export default function Home() {
                 <button id="bannerBtn">
                     <span id="bannerBtnBlock1"></span>
                     <span id="bannerBtnBlock2"></span>
-                    <p id="bannerBtnText">POST &gt;</p>
+                    <p id="bannerBtnText"><Link to = '/post'>POST &gt;</Link></p>
                 </button>
             </header>
             <main>
