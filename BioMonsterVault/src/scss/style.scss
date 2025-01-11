@@ -84,6 +84,38 @@ body {
         cursor: pointer;
     }
 }
+.glitch {
+    position: relative;
+    // letter-spacing: .5em;
+    /* Animation provies a slight random skew. Check bottom of doc
+    for more information on how to random skew. */
+    // animation: glitch-skew 1s infinite linear alternate-reverse;
+    
+    // Creates a copy before our text. 
+    &::before{
+        // Duplicates our text with the mixin.
+        @include glitchCopy;
+        // Scoots text slightly to the left for the color offset.
+        left: 2px;
+        // Creates the color 'shadow' that happens on the glitch.
+        text-shadow: -2px 0 $color-main-blue;
+        /* Creates an initial clip for our glitch. This works in
+        a typical top,right,bottom,left fashion and creates a mask
+        to only show a certain part of the glitch at a time. */
+        clip: rect(44px, 450px, 56px, 0);
+        /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+        with an alternating animation to keep things fresh. */
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+    
+    // Creates a copy after our text. Note comments from ::before.
+    &::after {
+        @include glitchCopy;
+        left: -2px;
+        text-shadow: -2px 0 $color-main-yellow, 2px 2px $color-main-blue;
+        animation: glitch-anim2 1s infinite linear alternate-reverse;
+    }
+}
 
 // 導覽列
 #topbar {
@@ -129,6 +161,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: bannershine 3.2s ;
 
     h2 {
         position: absolute;
@@ -146,9 +179,9 @@ body {
     }
 
     #bannerBtn {
-        cursor: pointer;
         border: none;
         background-color: transparent;
+        transition: .3s;
         #bannerBtnBlock1 {
             position: absolute;
             width: 12%;
@@ -157,6 +190,7 @@ body {
             right: 21%;
             clip-path: polygon(0 100%, 65% 0, 100% 0, 35% 100%);
             background-color: $color-main-yellow;
+            transition: .5s;
         }
 
         #bannerBtnBlock2 {
@@ -167,6 +201,7 @@ body {
             right: 27%;
             clip-path: polygon(0 100%, 77% 0, 100% 0, 23% 100%);
             background-color: $color-main-yellow;
+            transition: .5s;
         }
 
         #bannerBtnText {
@@ -189,7 +224,33 @@ body {
             bottom: 4.5%;
             right: 5%;
             overflow: visible;
+            transition: .5s;
+            a{
+                color: $deep;
+            }
         }
+        &:hover{
+            animation: shine .3s ;
+            
+            #bannerBtnBlock1{
+                transform: translateX(150px);
+                opacity: 0;
+            }
+            #bannerBtnBlock2{
+                transform: translateX(200px);
+                opacity: 0;
+            }
+            #bannerBtnText{
+                // animation: topost .3s .3s ;
+                width: 30%;
+                letter-spacing: 1rem;
+                background-color: $color-main-blue;
+                clip-path: polygon(0 100%, 25% 0, 100% 0, 100% 100%);
+                animation: shinetopost .3s .6s ;
+                opacity: .6;
+            }
+            
+            }
     }
 }
 
@@ -201,19 +262,26 @@ body {
         #hitTop {
             width: 50%;
             position: relative;
-
+            .titleTop1{
+                opacity: 0;
+                animation:  titletop .5s 1.2s both;
+            }
             .titleTop2 {
+                opacity: 0;
                 position: absolute;
                 width: 25%;
                 bottom: 25%;
                 left: 35%;
+                animation:  titletop .5s 1.6s both;
             }
 
             .titleTop3 {
+                opacity: 0;
                 position: absolute;
                 width: 20%;
                 top: 50%;
                 right: 15%;
+                animation:  titletop .5s 2s both;
             }
         }
 
@@ -223,6 +291,7 @@ body {
         }
 
         .h2bottom {
+            position: absolute;
             color: $color-main-yBg;
             letter-spacing: $font-size-xxxxl;
         }
@@ -405,7 +474,7 @@ body {
 
         .h2bottom {
             letter-spacing: 5rem;
-            color: $color-main-yellow;
+            color: $color-main-yBg;
         }
 
         #newsBottom {
@@ -1034,6 +1103,7 @@ footer {
                 font-size: $font-size-m;
             }
             button{
+                cursor: pointer;
                 width: 150px;
                 margin: 50px 50px 0; 
                 border: none;

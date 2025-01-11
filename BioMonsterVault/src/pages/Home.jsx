@@ -9,12 +9,15 @@ export default function Home() {
     const hitRef = useRef(null);
     const newsRef = useRef(null);
     const aboutRef = useRef(null);
+    const hittitleRef = useRef(null);
+
 
     const resetStyle = {
         display: "none"
     }
     const [buttonStyle, setButtonStyle] = useState(resetStyle);
     const [topbarStyle, setTopbarStyle] = useState(resetStyle);
+    const [hitTitleStyle, setHitTitleStyle] = useState(resetStyle);
     // 預設置頂按鈕隱藏，之後判斷何時出現
 
     const handleScroll = () => {
@@ -32,16 +35,59 @@ export default function Home() {
             setButtonStyle(resetStyle);
             setTopbarStyle(resetStyle);
         }
+
+        let hitTitle = hittitleRef.current.offsetTop;
+        // let newsTitle = document.getElementById('#newsTitle');
+        // const hitTop =hitTitle+ 10;
+        if(window.scrollY >= hitTitle){
+            setHitTitleStyle({
+                display: "flex",
+            })
+        }else{
+            setHitTitleStyle(resetStyle);
+        }
     };
+
+    // const scrollShow =()=>
+    //     {
+    //         let hitTitle = hittitleRef.current.offsetTop;
+    //         // let newsTitle = document.getElementById('#newsTitle');
+    //         // const hitTop =hitTitle+ 10;
+    //         if(window.scrollY >= hitTitle){
+    //             setHitTitleStyle({
+    //                 display: "flex",
+    //             })
+    //         }else{
+    //             setHitTitleStyle(resetStyle);
+    //         }
+        
+    // }
 
     useEffect(() => {
         window.scrollTo(0,0);
 
+        // 看完banner動畫才能滾動
+        document.body.style.overflow = 'hidden';
+        setTimeout(()=>{
+            document.body.style.overflow = 'auto';
+        },3400)
+
         window.addEventListener("scroll", handleScroll);
+        // window.addEventListener("scroll", scrollShow);
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            // window.removeEventListener("scroll", scrollShow);
         };
+
+
     }, []);
+
+    // useEffect(() => {
+    //     window.addEventListener("scroll", scrollShow);
+    //     return () => {
+    //         window.removeEventListener("scroll", scrollShow);
+    //     };
+    // }, []);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -105,7 +151,7 @@ export default function Home() {
             <main>
                 {/* hit */}
                 <section id="hit" ref={hitRef}>
-                    <header className="title">
+                    <header className="title" ref={hittitleRef} style={hitTitleStyle}>
                         <figure id="hitTop">
                             <img src="./images/TitleWrapperShort.svg" className="titleTop1"></img>
                             <img src="./images/TitleInnerShort.svg" className="titleTop2"></img>
@@ -113,8 +159,8 @@ export default function Home() {
                         </figure>
 
                         <div className="titlewrapper">
-                            <h2 className="h2main">HIT</h2>
-                            <p className="h2bottom">HIT</p>
+                            <h2 className="h2main glitch" data-text='HIT' >HIT</h2>
+                            <p className="h2bottom glitch" data-text='HIT'>HIT</p>
                         </div>
 
                         <figure id="hitBottom">
@@ -140,7 +186,7 @@ export default function Home() {
                                 <h3>Creeper</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p className="time">-2024/11/21</p>
+                                <p className="time">-2024/6/4</p>
                             </div>
                         </div>
                     </article>
@@ -161,7 +207,7 @@ export default function Home() {
                                 <h3>Creeper</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p className="time">-2024/11/21</p>
+                                <p className="time">-2024/11/12</p>
                             </div>
                         </div>
                     </article>
@@ -182,19 +228,19 @@ export default function Home() {
                                 <h3>Creeper</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
-                                <p className="time">-2024/11/21</p>
+                                <p className="time">-2024/12/25</p>
                             </div>
                         </div>
                     </article>
                 </section>
                 <section id="news" ref={newsRef}>
-                    <header className="title">
+                    <header className="title" id="newsTitle">
                         <figure id="newsTop">
                             <img src="./images/TitleTopShort-blue.svg" alt="" />
                         </figure>
                         <div className="titlewrapper">
-                            <h2 className="h2main"> NEWS</h2>
-                            <p className="h2bottom">NEWS</p>
+                            <h2 className="h2main glitch" data-text='NEWS' > NEWS</h2>
+                            <p className="h2bottom glitch" data-text='NEWS'>NEWS</p>
                         </div>
                         <figure id="newsBottom">
                             <img src="./images/TitleBottomLong-blue.svg" alt="" />
