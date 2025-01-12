@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @keyframes morebtn {
     0% {
         transform: rotate(0deg);
@@ -85,20 +87,20 @@
     $steps: 20;
 
     @for $i from 0 through $steps {
-        #{percentage($i*(1/$steps))} {
-            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
-            transform: skew((random(100) / 100) + deg);
+        #{calc($i * (1/$steps) * 100%)} {
+            clip: rect(math.random(100)+px, 9999px, math.random(100)+px, 0);
+            transform: skew(calc(math.random(100) / 100) + deg);
         }
     }
 }
 
 @keyframes glitch-anim2 {
     $steps: 20;
-
+    
     @for $i from 0 through $steps {
-        #{percentage($i*(1/$steps))} {
-            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
-            transform: skew((random(100) / 100) + deg);
+        #{calc($i * (1/$steps) * 100%)} {
+            clip: rect(math.random(100)+px, 9999px, math.random(100)+px, 0);
+            transform: skew(calc(math.random(100) / 100) + deg);
         }
     }
 }
@@ -107,8 +109,8 @@
     $steps: 10;
 
     @for $i from 0 through $steps {
-        #{percentage($i*(1/$steps))} {
-            transform: skew((random(10) - 5) + deg);
+        #{calc($i * (1/$steps)) * 100%} {
+            transform: skew(calc(math.random(10) - 5) + deg);
         }
     }
 }

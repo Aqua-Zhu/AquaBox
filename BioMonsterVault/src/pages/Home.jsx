@@ -62,19 +62,19 @@ export default function Home() {
     // }
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
 
         // 看完banner動畫才能滾動
-        document.body.style.overflow = 'hidden';
-        setTimeout(()=>{
-            document.body.style.overflow = 'auto';
-        },3400)
+        // document.body.style.overflow = 'hidden';
+        // setTimeout(()=>{
+        //     document.body.style.overflow = 'auto';
+        // },3400)
 
         //滾到指定位置，讓hitTitile出現
-        window.addEventListener("scroll", handleScroll);
+        // window.addEventListener("scroll", handleScroll);
         // window.addEventListener("scroll", scrollShow);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            // window.removeEventListener("scroll", handleScroll);
             // window.removeEventListener("scroll", scrollShow);
         };
 
@@ -163,7 +163,16 @@ export default function Home() {
                         </div>
 
                         <figure id="hitBottom">
-                            <img src="./images/TitleBottomLong.svg" alt="" className="titleBottom" />
+                        <img src="./images/TitleBottomWrapperTop.svg" alt="" className="WrapperTop hittopping" />
+                            <img src="./images/TitleBottomInner1-yellow.svg" alt="" className="Inner1 hittopping" />
+                            <img src="./images/TitleBottomInner2-yellow.svg" alt="" className="Inner2 hittopping" />
+                            <img src="./images/TitleBottomInner3-yellow.svg" alt="" className="Inner3 hittopping" />
+                            <img src="./images/TitleBottomInner4-2-yellow.svg" alt="" className="Inner4 hittopping" />
+                            <img src="./images/TitleBottomInner4-yellow.svg" alt="" className="Inner4-2 hittopping" />
+                            <img src="./images/TitleBottomInner5-yellow.svg" alt="" className="inner4-3 hittopping" />
+                            <img src="./images/TitleInnerShort.svg" alt="" className="Inner5 hittopping" />
+                            <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="WrapperBottom hittopping" />
+                            
                         </figure>
                     </header>
                     <article className="hit1">
@@ -233,21 +242,24 @@ export default function Home() {
                 <section id="news" ref={newsRef}>
                     <header className="title" id="newsTitle">
                         <figure id="newsTop">
-                            <img src="./images/TitleTopShort-blue.svg" alt="" />
+                            {/* <img src="./images/TitleTopShort-blue.svg" alt="" /> */}
+                            <img src="./images/TitleWrapperShort.svg" alt="" className="titleTop1" />
+                            <img src="./images/TitleInnerShort-blue.svg" alt="" className="titleTop2" />
+                            <img src="./images/TitleChargeShort-blue.svg" alt="" className="titleTop3" />
                         </figure>
                         <div className="titlewrapper">
                             <h2 className="h2main glitch" data-text='NEWS' > NEWS</h2>
                             <p className="h2bottom glitch" data-text='NEWS'>NEWS</p>
                         </div>
                         <figure id="newsBottom">
-                            {/* <img src="./images/TitleBottomWrapperTop.svg" alt="" className="" />
-                            <img src="./images/TitleBottomInner1.svg" alt="" className="" />
-                            <img src="./images/TitleBottomInner2.svg" alt="" className="" />
-                            <img src="./images/TitleBottomInner3.svg" alt="" className="" />
-                            <img src="./images/TitleBottomInner4.svg" alt="" className="" />
-                            <img src="./images/TitleBottomInner5.svg" alt="" className="" />
-                            <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="" /> */}
-                            <img src="./images/TitleBottomLong-blue.svg" alt="" />
+                            <img src="./images/TitleBottomWrapperTop.svg" alt="" className="WrapperTop newstopping" />
+                            <img src="./images/TitleBottomInner1.svg" alt="" className="Inner1 newstopping" />
+                            <img src="./images/TitleBottomInner2.svg" alt="" className="Inner2 newstopping" />
+                            <img src="./images/TitleBottomInner3.svg" alt="" className="Inner3 newstopping" />
+                            <img src="./images/TitleBottomInner4.svg" alt="" className="Inner4 newstopping" />
+                            <img src="./images/TitleBottomInner5.svg" alt="" className="Inner5 newstopping" />
+                            <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="WrapperBottom newstopping" />
+                            {/* <img src="./images/TitleBottomLong-blue.svg" alt="" /> */}
                         </figure>
                     </header>
                     <article className="newsContent" id="news-1">
