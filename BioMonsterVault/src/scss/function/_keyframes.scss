@@ -112,6 +112,37 @@
         }
     }
 }
+//topost
+@keyframes shinetopost {
+    10% {
+        opacity: 0.8;
+    }
+
+    30% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    60% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        letter-spacing: .5rem;
+    }
+
+
+    100% {
+        opacity: 0.5;
+    }
+}
 
 //title
 @keyframes titletop {
@@ -149,36 +180,77 @@
 
 }
 
-@keyframes shinetopost {
-    10% {
+//hitimg
+@keyframes hitImg {
+    5% {
         opacity: 0.8;
+        transform: translateX(-50px);
+    }
+    8%{
+        transform: translateX(0px);
+    }
+    12%{
+        transform: translateX(-20px);
+    }
+    16%{
+        transform: translateX(30px);
     }
 
-    30% {
+    20% {
         opacity: 0.2;
     }
-
-    50% {
+    25%{
+        transform: translateY(-25px)
+    }
+    28%{
+        transform: translateY(20px)
+    }
+    32% {
         opacity: 0.7;
+        transform: translateX(100px);
+    }
+    35%{
+        transform: translateX(50px);
     }
 
-    60% {
+    42% {
         opacity: 0.3;
+        transform: translateY(20px);
     }
-
-    70% {
+    45%{
+        transform: translateY(-20px);
+    }
+    47%{
         opacity: 1;
+        transform: translateY(0px);
+    }
+    50% {
+        opacity: 0.3;
+        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);;
     }
 
     80% {
-        letter-spacing: .5rem;
+        opacity: 0.8;
     }
-
+    82%{
+        transform: translateX(-80px) ;
+        clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);;
+    }
+    86% {
+        transform: translateX(120px) ;
+        clip-path:  polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);;
+    }
+    88%{
+        transform: translateX(0PX) ;
+        clip-path:  polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);;
+    }
 
     100% {
-        opacity: 0.5;
+        opacity: 0.8;
     }
+
 }
+
 
 @keyframes shine {
     10% {

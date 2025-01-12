@@ -15,13 +15,14 @@ export default function Home() {
     const resetStyle = {
         display: "none"
     }
+    // 預設置頂按鈕隱藏，之後判斷何時出現
     const [buttonStyle, setButtonStyle] = useState(resetStyle);
     const [topbarStyle, setTopbarStyle] = useState(resetStyle);
     const [hitTitleStyle, setHitTitleStyle] = useState(resetStyle);
-    // 預設置頂按鈕隱藏，之後判斷何時出現
+    
 
     const handleScroll = () => {
-        const windowTop = window.innerHeight + 10; //window.innerHeight = 100ㄘ
+        const windowTop = window.innerHeight + 10; 
         if (window.scrollY >= windowTop) {
             setButtonStyle({
                 display: "flex",
@@ -36,12 +37,11 @@ export default function Home() {
             setTopbarStyle(resetStyle);
         }
 
-        let hitTitle = hittitleRef.current.offsetTop;
-        // let newsTitle = document.getElementById('#newsTitle');
-        // const hitTop =hitTitle+ 10;
+        const hitTitle = hittitleRef.current.offsetTop;
         if(window.scrollY >= hitTitle){
             setHitTitleStyle({
                 display: "flex",
+                flexDirection: 'column',
             })
         }else{
             setHitTitleStyle(resetStyle);
@@ -51,8 +51,6 @@ export default function Home() {
     // const scrollShow =()=>
     //     {
     //         let hitTitle = hittitleRef.current.offsetTop;
-    //         // let newsTitle = document.getElementById('#newsTitle');
-    //         // const hitTop =hitTitle+ 10;
     //         if(window.scrollY >= hitTitle){
     //             setHitTitleStyle({
     //                 display: "flex",
@@ -72,6 +70,7 @@ export default function Home() {
             document.body.style.overflow = 'auto';
         },3400)
 
+        //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
         // window.addEventListener("scroll", scrollShow);
         return () => {
@@ -165,8 +164,6 @@ export default function Home() {
 
                         <figure id="hitBottom">
                             <img src="./images/TitleBottomLong.svg" alt="" className="titleBottom" />
-                            {/* <img src="./images/" alt="" className="titleBottom" />
-                        <img src="" alt="" className="titleBottom" /> */}
                         </figure>
                     </header>
                     <article className="hit1">
@@ -243,6 +240,13 @@ export default function Home() {
                             <p className="h2bottom glitch" data-text='NEWS'>NEWS</p>
                         </div>
                         <figure id="newsBottom">
+                            {/* <img src="./images/TitleBottomWrapperTop.svg" alt="" className="" />
+                            <img src="./images/TitleBottomInner1.svg" alt="" className="" />
+                            <img src="./images/TitleBottomInner2.svg" alt="" className="" />
+                            <img src="./images/TitleBottomInner3.svg" alt="" className="" />
+                            <img src="./images/TitleBottomInner4.svg" alt="" className="" />
+                            <img src="./images/TitleBottomInner5.svg" alt="" className="" />
+                            <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="" /> */}
                             <img src="./images/TitleBottomLong-blue.svg" alt="" />
                         </figure>
                     </header>
