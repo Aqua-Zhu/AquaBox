@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Totop from "./ToTop";
 export default function TapbarToTop() {
 
     const resetStyle = {
@@ -70,11 +71,7 @@ export default function TapbarToTop() {
                     </ul>
                 </nav>
             </div>
-            <div className="toTop" style={buttonStyle} >
-                <button className="toTop-btn" onClick={scrollToTop}>
-                    <img src="./images/TopBtnLight.svg" alt="" />
-                </button>
-            </div>
+            <Totop/>
 
         </>
 

@@ -1,44 +1,8 @@
 @use "sass:math";
+@use '../variables/color' as *;
 
-@keyframes morebtn {
-    0% {
-        transform: rotate(0deg);
-    }
 
-    50% {
-        transform: rotate(180deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes circ3 {
-    0% {
-        opacity: .5;
-        transform: rotate(0deg);
-    }
-
-    20% {
-        opacity: .2;
-    }
-
-    50% {
-        opacity: 1;
-        transform: rotate(-180deg);
-    }
-
-    70% {
-        opacity: .3;
-    }
-
-    100% {
-        opacity: .5;
-        transform: rotate(-360deg);
-    }
-}
-
+//banner
 @keyframes bannershine {
     0% {
         opacity: 0;
@@ -70,19 +34,36 @@
 
 }
 
-
-@keyframes topost {
-    50% {
-
-        background-color: #BBF7C2;
+//totop
+@keyframes totop {
+    10%{
+        opacity: 0.2;
+        transform: translateY(-40px);
     }
-
-    100% {
-        width: 30%;
+    20%{
+        opacity: 0.7;
+        transform: translateY(-20px);
+    }
+    30%{
+        opacity: 0.2;
+        transform: translateY(-50px);
+    }
+    40%{
+        opacity: 0.8;
+        transform: translateY(-10px);
+    }
+    50%{
+        opacity: 0.2;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 0.8;
+        transform: translateY(-30px);
     }
 }
 
-//
+
+//glitch
 @keyframes glitch-anim {
     $steps: 20;
 
@@ -114,6 +95,43 @@
         }
     }
 }
+@keyframes glitch-clip {
+    20%{
+        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+        // background-color: $color-main-blue;
+    }
+    74%,
+    30%{
+        clip-path:  polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    }
+    63%,
+    40%{
+        clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+        // background-color: $color-font-green;
+    }
+    92%,
+    50%{
+        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+    }
+    43%,
+    60%{
+        clip-path:  polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+        // background-color: $color-main-yBg;
+    }
+    15%,
+    70%{
+        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+    }
+    5%,
+    80%{
+        clip-path:  polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+        // background-color: $color-main-yellow;
+    }
+    100%{
+        opacity: 0.7;
+    }
+}
+
 //topost
 @keyframes shinetopost {
     10% {
@@ -143,6 +161,16 @@
 
     100% {
         opacity: 0.5;
+    }
+}
+@keyframes topost {
+    50% {
+
+        background-color: #BBF7C2;
+    }
+
+    100% {
+        width: 30%;
     }
 }
 
@@ -349,5 +377,45 @@
 
     100% {
         opacity: 0.8;
+    }
+}
+
+// morebtn
+@keyframes morebtn {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes circ3 {
+    0% {
+        opacity: .5;
+        transform: rotate(0deg);
+    }
+
+    20% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(-180deg);
+    }
+
+    70% {
+        opacity: .3;
+    }
+
+    100% {
+        opacity: .5;
+        transform: rotate(-360deg);
     }
 }

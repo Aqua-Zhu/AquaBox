@@ -3,6 +3,7 @@ import Rain from "../component/Rain";
 import { useEffect, useRef, useState } from "react";
 import $ from 'jquery';
 import TapbarToTop from "../component/TapbarToTop";
+import Hamburger from "../component/hamburger";
 
 export default function Home() {
 
@@ -30,14 +31,16 @@ export default function Home() {
     const [hit3Style, setHit3Style] = useState(resetStyle);
     const [spaceXStyle, setSpaceXStyle] = useState({});
     const [spaceX2Style, setSpaceX2Style] = useState({});
+    const [newsTitleStyle, setNewsTitleStyle] = useState(resetStyle);
 
     //過場動畫
     const handleScroll = () => {
-        let gap = 300;
+        let gap = 350;
         const windowTop = window.innerHeight + 10;
         if (window.scrollY >= windowTop) {
             setButtonStyle({
                 display: "flex",
+                flexDirection: "column",
                 animation: "shine .2s linear ",
             })
             setTopbarStyle({
@@ -76,8 +79,8 @@ export default function Home() {
         }
 
         /* hit2 */
-        const hit2Position = hit1Position + gap
-        if (window.scrollY > hit2Position + gap * 3) {
+        const hit2Position = hit1Position + hit1Ref.current.offsetHeight;
+        if (window.scrollY > hit2Position + gap) {
             setTimeout(            
                 setHit2Style({
                 display: "flex",
@@ -88,20 +91,29 @@ export default function Home() {
         }
 
         /* hit3 */
-        const hit3Position = hit2Position + gap
-        if (window.scrollY > hit3Position + gap * 3.5) {
+        const hit3Position = hit2Position + hit2Ref.current.offsetHeight;
+        if (window.scrollY > hit3Position + gap*2) {
             setTimeout(            
                 setHit3Style({
                 display: "flex",
             }),700);
-            setSpaceX2Style(resetStyle);
         } else {
             setHit3Style(resetStyle);
-            setSpaceX2Style({});
         }
 
         /* newsTitle */ 
-        
+        const newsPosition = hit3Position + hit3Ref.current.offsetHeight;
+        if (window.scrollY > newsPosition + gap*2 ) {
+            setTimeout(        
+                setNewsTitleStyle({
+                display: "flex",
+                flexDirection: 'column',
+            }),700);
+            setSpaceX2Style(resetStyle);
+        } else {
+            setNewsTitleStyle(resetStyle);
+            setSpaceX2Style({});
+        }
 
 
     };
@@ -119,7 +131,7 @@ export default function Home() {
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
-        console.dir(hit3Ref.current);
+        // console.dir(hit3Ref.current);
         // window.addEventListener("scroll", scrollShow);
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -170,12 +182,17 @@ export default function Home() {
                         <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                     </ul>
                 </nav>
+                <Hamburger/>
             </div>
-            <div className="toTop" style={buttonStyle} >
-                <button className="toTop-btn" onClick={scrollToTop}>
-                    <img src="./images/TopBtnLight.svg" alt="" />
+        <div className="totopWrapper" style={buttonStyle}>
+        <button className="toTop-btn" onClick={scrollToTop} >
+                    {/* <img src="./images/TopBtnLight.svg" alt="" /> */}
+                    <img src="./images/totop-1.svg" alt="" className="totop1" />
+                    <img src="./images/totop-2.svg" alt="" className="totop2" />
+                    <img src="./images/totop-3.svg" alt="" className="totop3" />
                 </button>
-            </div>
+        </div>
+
 
 
 
@@ -191,7 +208,7 @@ export default function Home() {
             </header>
             <main>
                 {/* hit */}
-                <section id="hit">
+                <section id="hit" ref={hitRef}>
                     <header className="title" style={hitTitleStyle} ref={titleRef} >
                         <figure id="hitTop">
                             <img src="./images/TitleWrapperShort.svg" className="titleTop1"></img>
@@ -253,7 +270,7 @@ export default function Home() {
                                 <div className="hitL1 hitborder"><img src="./images/FileContentBlock01-yellow.png" alt="" /></div>
                                 <div className="hitL2 hitborder"><img src="./images/FileContentBlock02-yellow.png" alt="" /></div>
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03-yellow.png" alt="" /></div>
-                                <h3>Cogi</h3>
+                                <h3>Uiiaiu</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/11/12</p>
@@ -283,8 +300,8 @@ export default function Home() {
                     </article>
                     <div id="spaceX2" style={spaceX2Style}></div>
                 </section>
-                <section id="news" ref={newsRef}>
-                    <header className="title" id="newsTitle">
+                <section id="news" ref={newsRef} >
+                    <header className="title" id="newsTitle"  style={newsTitleStyle}>
                         <figure id="newsTop">
                             {/* <img src="./images/TitleTopShort-blue.svg" alt="" /> */}
                             <img src="./images/TitleWrapperShort.svg" alt="" className="titleTop1" />
@@ -303,7 +320,6 @@ export default function Home() {
                             <img src="./images/TitleBottomInner4.svg" alt="" className="Inner4 newstopping" />
                             <img src="./images/TitleBottomInner5.svg" alt="" className="Inner5 newstopping" />
                             <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="WrapperBottom newstopping" />
-                            {/* <img src="./images/TitleBottomLong-blue.svg" alt="" /> */}
                         </figure>
                     </header>
                     <article className="newsContent" id="news-1">

@@ -45,6 +45,7 @@ body {
         font-size: $font-size-ex-title;
         font-family: 'Linebeam';
         text-align: center;
+        overflow: hidden;
 
         .h2main {
             margin: 40px 0;
@@ -71,20 +72,49 @@ body {
     position: fixed;
 }
 
-.toTop {
-    position: fixed;
-    z-index: 99;
-    bottom: 5%;
-    right: 1%;
-    // display: none;
-
+.totopWrapper{
     .toTop-btn {
-        width: 70%;
         background-color: transparent;
         border: none;
+        position: fixed;
+        z-index: 99;
+        bottom: 5%;
+        right: 3%;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .totop1 {
+            width: 55%;
+        }
+    
+        .totop2 {
+            width: 65%;
+        }
+    
+        .totop3 {
+            width: 65%;
+            margin-top: 20px;
+        }
+        &:hover{
+            animation: glitch-clip 0.3s 0.1s both;
+            .totop1{
+                animation: totop 0.3s both;
+                // animation: glitch-clip 0.15s 0.2s both;
+            }
+            .totop2{
+                animation: totop 0.3s 0.05s both;
+                // animation: glitch-clip 0.15s 0.3s both;
+            }
+            .totop3{
+                animation: totop 0.3s 0.1s both;
+                // animation: glitch-clip 0.15s 0.4s both;
+            }
+        }
     }
 }
+
+
 
 .glitch {
     position: relative;
@@ -121,6 +151,7 @@ body {
 .titlewrapper {
     opacity: 0;
     animation: hitImg .25s 1.2s both;
+    overflow: hidden;
 }
 
 .titleTop1 {
@@ -157,18 +188,22 @@ body {
     opacity: 0;
     animation: titlebottom 0.3s 0.3s both;
 }
+
 .Inner4 {
     opacity: 0;
     animation: titlebottom 0.3s 0.4s both;
 }
+
 .Inner5 {
-opacity: 0;
+    opacity: 0;
     animation: titlebottom 0.3s 0.6s both;
 }
+
 .WrapperBottom {
     opacity: 0;
     animation: titlebottom 0.3s 0.7s both;
 }
+
 // 導覽列
 #topbar {
     width: 96%;
@@ -203,6 +238,41 @@ opacity: 0;
             li {
                 margin: 0 10px;
                 font-family: 'NicoMoji';
+            }
+        }
+    }
+
+    .hamburger {
+        background: none;
+        width: 70px;
+        height: 70px;
+        border: none;
+        align-self: center;
+        cursor: pointer;
+
+        .bar {
+            background-color: $color-main-yellow;
+            width: 24px;
+            height: 3px;
+            margin: 5px auto;
+            display: block;
+            transition: .5s;
+        }
+
+        &.click {
+            .bar {
+                &:nth-child(1) {
+
+                    transform: rotate(45deg) translateY(6px) translateX(5px);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translateY(-6px) translateX(5px);
+                }
             }
         }
     }
@@ -434,7 +504,7 @@ opacity: 0;
     }
 
     article {
-        margin: 150px 10%;
+        margin: 200px 10%;
     }
 
     .hit01 {
@@ -614,12 +684,16 @@ opacity: 0;
 
 // NEWS區
 #news {
+
     .newsLineText {
         font-family: 'Linebeam';
         color: $color-main-blue;
     }
 
     .title {
+        position: relative;
+        padding-bottom: 50px;
+
         #newsTop {
             width: 50%;
             position: relative;
@@ -646,23 +720,29 @@ opacity: 0;
         h2 {
             letter-spacing: 5rem;
             color: $color-main-blue;
+            position: relative;
         }
 
         .h2bottom {
             letter-spacing: 5rem;
             color: $color-main-yBg;
+            position: absolute;
+            top: 50px;
         }
 
         #newsBottom {
             width: 55%;
             height: 80px;
-            position: absolute;
-            right: 0;
             overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            right: 0;
             animation: hitImg .3s 1.2s;
+
 
             .newstopping {
                 position: absolute;
+
             }
 
             .WrapperTop {
@@ -794,7 +874,7 @@ opacity: 0;
             //ship裝飾區
             .shipwrapper {
                 position: absolute;
-                top: -4%;
+                top: -4.6%;
 
                 .newsborder {
                     position: absolute;
@@ -1005,7 +1085,7 @@ opacity: 0;
 
 // ABOUT區
 #about {
-    background-color: #D0D0D0;
+    background-color: $color-neutral-20;
     color: #000;
     position: relative;
     z-index: 50;
@@ -1212,7 +1292,7 @@ footer {
         display: flex;
         flex-direction: column;
         margin: 0;
-
+        animation: bannershine 3.2s;
         label {
             margin: 20px 0 10px;
             color: $color-main-yellow;
