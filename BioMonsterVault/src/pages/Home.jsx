@@ -31,6 +31,7 @@ export default function Home() {
     const [spaceXStyle, setSpaceXStyle] = useState({});
     const [spaceX2Style, setSpaceX2Style] = useState({});
 
+    //過場動畫
     const handleScroll = () => {
         let gap = 300;
         const windowTop = window.innerHeight + 10;
@@ -51,6 +52,7 @@ export default function Home() {
         const bannerPostion = bannerRef.current.offsetHeight;
         const bannerTarget = (bannerPostion / 3) - 100;
 
+        /* hitTitle */ 
         if (window.scrollY >= bannerTarget) {
             setHitTitleStyle({
                 display: "flex",
@@ -98,8 +100,13 @@ export default function Home() {
             setSpaceX2Style({});
         }
 
+        /* newsTitle */ 
+        
+
+
     };
 
+    
     useEffect(() => {
         // window.scrollTo(0,0);
 
@@ -112,12 +119,14 @@ export default function Home() {
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
+        console.dir(hit3Ref.current);
         // window.addEventListener("scroll", scrollShow);
         return () => {
             window.removeEventListener("scroll", handleScroll);
             // window.removeEventListener("scroll", scrollShow);
         };
-
+        
+        
 
     }, []);
 

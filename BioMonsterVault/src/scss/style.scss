@@ -85,14 +85,15 @@ body {
         cursor: pointer;
     }
 }
+
 .glitch {
     position: relative;
     /* Animation provies a slight random skew. Check bottom of doc
     for more information on how to random skew. */
     // animation: glitch-skew 1s infinite linear alternate-reverse;
-    
+
     // Creates a copy before our text. 
-    &::before{
+    &::before {
         // Duplicates our text with the mixin.
         @include glitchCopy;
         // Scoots text slightly to the left for the color offset.
@@ -107,7 +108,7 @@ body {
         with an alternating animation to keep things fresh. */
         animation: glitch-anim 5s infinite linear alternate-reverse;
     }
-    
+
     // Creates a copy after our text. Note comments from ::before.
     &::after {
         @include glitchCopy;
@@ -117,6 +118,57 @@ body {
     }
 }
 
+.titlewrapper {
+    opacity: 0;
+    animation: hitImg .25s 1.2s both;
+}
+
+.titleTop1 {
+    opacity: 0;
+    animation: titletop .3s .5s both;
+}
+
+.titleTop2 {
+    opacity: 0;
+    animation: titletop .3s .8s both;
+}
+
+.titleTop3 {
+    opacity: 0;
+    animation: titletop .3s 1.1s both;
+}
+
+.WrapperTop {
+    opacity: 0;
+    animation: titlebottom 0.3s both;
+}
+
+.Inner1 {
+    opacity: 0;
+    animation: titlebottom 0.3s 0.2s both;
+}
+
+.Inner2 {
+    opacity: 0;
+    animation: titlebottom 0.3s 0.25s both;
+}
+
+.Inner3 {
+    opacity: 0;
+    animation: titlebottom 0.3s 0.3s both;
+}
+.Inner4 {
+    opacity: 0;
+    animation: titlebottom 0.3s 0.4s both;
+}
+.Inner5 {
+opacity: 0;
+    animation: titlebottom 0.3s 0.6s both;
+}
+.WrapperBottom {
+    opacity: 0;
+    animation: titlebottom 0.3s 0.7s both;
+}
 // 導覽列
 #topbar {
     width: 96%;
@@ -126,10 +178,12 @@ body {
     position: fixed;
     z-index: 999;
     align-items: center;
-    img{
-        width:$font-size-xxxxl;
+
+    img {
+        width: $font-size-xxxxl;
         margin-right: 15px;
     }
+
     a {
         color: $color-main-yellow;
         display: flex;
@@ -139,7 +193,7 @@ body {
     h1 {
         font-family: 'Linebeam';
         font-size: $font-size-xxxl;
-        
+
     }
 
     nav {
@@ -161,7 +215,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: bannershine 3.2s ;
+    animation: bannershine 3.2s;
 
     h2 {
         position: absolute;
@@ -182,6 +236,7 @@ body {
         border: none;
         background-color: transparent;
         transition: .3s;
+
         #bannerBtnBlock1 {
             position: absolute;
             width: 12%;
@@ -225,79 +280,76 @@ body {
             right: 5%;
             overflow: visible;
             transition: .5s;
-            a{
+
+            a {
                 color: $deep;
             }
         }
-        &:hover{
-            animation: shine .3s ;
-            
-            #bannerBtnBlock1{
+
+        &:hover {
+            animation: shine .3s;
+
+            #bannerBtnBlock1 {
                 transform: translateX(150px);
                 opacity: 0;
             }
-            #bannerBtnBlock2{
+
+            #bannerBtnBlock2 {
                 transform: translateX(200px);
                 opacity: 0;
             }
-            #bannerBtnText{
+
+            #bannerBtnText {
                 // animation: topost .3s .3s ;
                 width: 30%;
                 letter-spacing: 1rem;
                 background-color: $color-main-blue;
                 clip-path: polygon(0 100%, 25% 0, 100% 0, 100% 100%);
-                animation: shinetopost .3s .6s ;
+                animation: shinetopost .3s .6s;
                 opacity: .6;
             }
-            
-            }
+
+        }
     }
 }
 
 // HIT區
 #hit {
-    #spaceX,#spaceX2{
+
+    #spaceX,
+    #spaceX2 {
         height: 350px;
     }
+
     .title {
         margin-bottom: 200px;
         position: relative;
         padding-bottom: 50px;
-        .titlewrapper{
-            opacity: 0;
-            animation: hitImg .25s 1.2s both;
-        }
+
         #hitTop {
             width: 50%;
             position: relative;
             animation: hitImg .3s 1.2s;
-            .titleTop1{
-                opacity: 0;
-                animation:  titletop .3s .5s both;
-            }
+
             .titleTop2 {
-                opacity: 0;
                 position: absolute;
                 width: 25%;
                 bottom: 25%;
                 left: 35%;
-                animation:  titletop .3s .8s both;
             }
 
             .titleTop3 {
-                opacity: 0;
                 position: absolute;
                 width: 20%;
                 top: 50%;
                 right: 15%;
-                animation:  titletop .3s 1.1s both;
             }
         }
 
         h2 {
             color: $color-main-yellow;
             letter-spacing: $font-size-xxxxl;
-            
+
         }
 
         .h2bottom {
@@ -316,64 +368,66 @@ body {
             bottom: 0;
             overflow: hidden;
             animation: hitImg .3s 1.2s both;
-            .hittopping{
+
+            .hittopping {
                 position: absolute;
                 opacity: 0;
             }
-            .WrapperTop{
-                opacity: 0;
+
+            .WrapperTop {
                 width: 100%;
                 top: 0;
-                animation: titlebottom 0.3s both;
             }
-            .Inner1{
+
+            .Inner1 {
                 width: 5%;
                 bottom: 45%;
                 right: 61%;
-                animation: titlebottom 0.3s 0.2s both;
             }
-            .Inner2{
+
+            .Inner2 {
                 width: 5%;
                 bottom: 45%;
                 right: 56%;
-                animation: titlebottom 0.3s 0.25s both;
             }
-            .Inner3{
+
+            .Inner3 {
                 width: 5%;
                 bottom: 45%;
                 right: 45%;
-                animation: titlebottom 0.3s 0.3s both;
             }
-            .Inner4{
+
+            .Inner4 {
                 width: 15%;
                 bottom: 45%;
                 right: 30%;
-                animation: titlebottom 0.3s 0.4s both;
             }
-            .Inner4-2{
+
+            .Inner4-2 {
                 width: 4.5%;
                 bottom: 44%;
                 right: 40%;
                 animation: titlebottom 0.3s 0.45s both;
             }
-            .inner4-3{
+
+            .inner4-3 {
                 width: 10%;
                 bottom: 45%;
                 right: 30%;
                 animation: titlebottom 0.3s 0.5s both;
             }
-            .Inner5{
+
+            .Inner5 {
                 width: 25%;
                 bottom: 15%;
                 right: 2.8%;
                 transform: rotateY(180deg);
-                animation: titlebottom 0.3s 0.6s both;
             }
-            .WrapperBottom{
+
+            .WrapperBottom {
                 width: 50%;
                 bottom: 0;
                 right: 8.3%;
-                animation: titlebottom 0.3s 0.7s both;
             }
 
         }
@@ -382,16 +436,20 @@ body {
     article {
         margin: 150px 10%;
     }
-    .hit01{
+
+    .hit01 {
         margin-top: 250px;
     }
+
     .hit1 {
         display: flex;
+
         .hitimg {
             width: 50%;
             position: relative;
             opacity: 0;
             animation: hitImg .25s both;
+
             .hit1img {
                 mask-image: url(./images/hitmask.png);
                 mask-size: contain;
@@ -403,7 +461,7 @@ body {
                 width: 86%;
                 top: -2.5%;
                 left: -2.8%;
-                
+
             }
         }
 
@@ -411,7 +469,7 @@ body {
             // margin-left: 10%;
             position: relative;
             width: 40%;
-            
+
 
             #line1 {
                 opacity: 0;
@@ -434,6 +492,7 @@ body {
                 height: 450px;
                 opacity: 0;
                 animation: shine .3s .3s both;
+
                 h3 {
                     font-size: $font-size-ex-hitTitle;
                     padding-top: 5%;
@@ -478,7 +537,7 @@ body {
                     top: -20%;
                     left: -27%;
                     opacity: 0;
-                    animation: shine .3s .2s  both;
+                    animation: shine .3s .2s both;
                 }
 
                 .hitR {
@@ -565,31 +624,23 @@ body {
             width: 50%;
             position: relative;
             z-index: 88;
-            position: relative;
-                width: 50%;
-                position: relative;
-                .titleTop1{
-                    opacity: 0;
-                    animation:  titletop .3s .9s both;
-                }
-                .titleTop2 {
-                    opacity: 0;
-                    position: absolute;
-                    width: 25%;
-                    bottom: 25%;
-                    left: 35%;
-                    animation:  titletop .3s 1s both;
-                }
-    
-                .titleTop3 {
-                    opacity: 0;
-                    position: absolute;
-                    width: 20%;
-                    top: 50%;
-                    right: 15%;
-                    animation:  titletop .3s 1.1s both;
-                }
-            
+            animation: hitImg .3s 1.2s;
+
+
+            .titleTop2 {
+                position: absolute;
+                width: 25%;
+                bottom: 25%;
+                left: 35%;
+            }
+
+            .titleTop3 {
+                position: absolute;
+                width: 20%;
+                top: 50%;
+                right: 15%;
+            }
+
         }
 
         h2 {
@@ -608,39 +659,49 @@ body {
             position: absolute;
             right: 0;
             overflow: hidden;
-            .newstopping{
+            animation: hitImg .3s 1.2s;
+
+            .newstopping {
                 position: absolute;
             }
-            .WrapperTop{
+
+            .WrapperTop {
                 width: 100%;
                 top: 0;
+                animation: titlebottom 0.3s 0.3s both;
             }
-            .Inner1{
+
+            .Inner1 {
                 width: 5%;
                 bottom: 45%;
                 right: 61%;
             }
-            .Inner2{
+
+            .Inner2 {
                 width: 5%;
                 bottom: 45%;
                 right: 56%;
             }
-            .Inner3{
+
+            .Inner3 {
                 width: 5%;
                 bottom: 45%;
                 right: 45%;
             }
-            .Inner4{
+
+            .Inner4 {
                 width: 15%;
                 bottom: 45%;
                 right: 30%;
             }
-            .Inner5{
+
+            .Inner5 {
                 width: 25%;
                 bottom: 15%;
                 right: 2.8%;
             }
-            .WrapperBottom{
+
+            .WrapperBottom {
                 width: 50%;
                 bottom: 0;
                 right: 8.3%;
@@ -955,8 +1016,9 @@ body {
         font-family: 'Linebeam';
         text-align: center;
         letter-spacing: $font-size-ex-m;
+
         .h2main {
-            margin:300px 0 40px;
+            margin: 300px 0 40px;
             position: relative;
             z-index: 10;
             color: #000;
@@ -1093,10 +1155,11 @@ footer {
     flex-direction: column;
     justify-content: center;
 
-    img{
-        width:$font-size-xxxxl;
+    img {
+        width: $font-size-xxxxl;
         margin-right: 15px;
     }
+
     h2 {
         margin: 10px 0 0 50px;
         font-family: 'NicoMoji';
@@ -1134,93 +1197,111 @@ footer {
 
 
 //post
-#post{
+#post {
     height: 100vh;
-    #topbar{
+
+    #topbar {
         position: fixed;
         transition: .5s;
         animation: shineTopbar .4s both;
     }
 
-    form{
+    form {
         font-family: 'Linebeam';
         display: block;
         display: flex;
         flex-direction: column;
         margin: 0;
-        label{
+
+        label {
             margin: 20px 0 10px;
             color: $color-main-yellow;
             font-size: $font-size-l;
         }
-        #formTop{
+
+        #formTop {
             margin-top: 15vh;
             display: flex;
             // align-items: center;
             justify-content: center;
             position: relative;
         }
-        .area{
+
+        .area {
             width: 100%;
             display: block;
             display: flex;
             flex-direction: column;
+
             // align-items: end;
-            input,textarea,select{
-                width: 100%; 
-                height: 140px; 
-                background: url('./images/formBG.png') no-repeat ;
-                background-size: 100% 100%; 
+            input,
+            textarea,
+            select {
+                width: 100%;
+                height: 140px;
+                background: url('./images/formBG.png') no-repeat;
+                background-size: 100% 100%;
                 border: none;
                 color: #fff;
                 font-family: 'Inter';
                 font-weight: bold;
                 // box-sizing: border-box; /* 包含邊框和內邊距 */
-                padding:0 30px;
+                padding: 0 30px;
                 transition: .3s;
-                &:focus{
+
+                &:focus {
                     outline: none;
                     filter: drop-shadow(2px 2px $color-font-green);
                     // animation: shine .4s both;
                 }
-                &::placeholder{
+
+                &::placeholder {
                     color: $color-font-green;
                 }
             }
-            input{
+
+            input {
                 height: 60px;
             }
-            select{
+
+            select {
                 height: 50px;
-                appearance: none; /* 移除預設箭頭 */
+                appearance: none;
+                /* 移除預設箭頭 */
                 color: $color-font-green;
-                option{
+
+                option {
                     background-color: $deep;
                     color: $color-font-green;
-                    &:checked{
+
+                    &:checked {
                         background-color: $color-font-green;
                         color: $deep;
                     }
                 }
             }
         }
-        #area1{
+
+        #area1 {
             justify-content: space-around;
             position: relative;
             z-index: 99;
             width: 20%;
             margin-top: 20px;
             margin-left: 40%;
-            label{
+
+            label {
                 width: 100%;
                 margin-bottom: 20px;
             }
         }
-        #area2{
+
+        #area2 {
             position: absolute;
             width: 50%;
             left: 20%;
-            .uploadbtn{
+
+            .uploadbtn {
                 width: 13%;
                 display: flex;
                 cursor: pointer;
@@ -1228,48 +1309,56 @@ footer {
                 top: 45%;
                 left: 30%;
                 font-size: $font-size-m;
-                padding:10px 12px;
+                padding: 10px 12px;
                 text-align: center;
                 color: $color-main-yellow;
                 border: 2px solid $color-main-yellow;
                 transition: .3s;
-                img{
+
+                img {
                     margin-left: 15px;
                     width: 15%;
                 }
-                &:hover{
+
+                &:hover {
                     background-color: $color-main-yellow;
                     color: $deep;
-                    img{
+
+                    img {
                         filter: brightness(0);
                     }
                 }
             }
-            input{
+
+            input {
                 background: none;
                 width: 28%;
                 display: none;
             }
         }
-        #area3{
+
+        #area3 {
             width: 60%;
             align-items: center;
             margin: 20px 20%;
             position: relative;
-            label{
+
+            label {
                 align-self: start;
                 margin-bottom: 20px;
             }
-            textarea{
-                padding:80px 50px;
+
+            textarea {
+                padding: 80px 50px;
                 height: 300px;
                 width: 100%;
                 font-size: $font-size-m;
             }
-            button{
+
+            button {
                 cursor: pointer;
                 width: 150px;
-                margin: 50px 50px 0; 
+                margin: 50px 50px 0;
                 border: none;
                 color: $color-main-yellow;
                 border: 2px solid $color-main-yellow;
@@ -1279,18 +1368,20 @@ footer {
                 font-family: 'Linebeam';
                 font-size: $font-size-l;
 
-                &:hover{
+                &:hover {
                     background-color: $color-main-yellow;
                     color: $deep;
                 }
             }
         }
     }
-    footer{  
+
+    footer {
         margin-top: 150px;
         position: relative;
         z-index: 88;
-        small{
+
+        small {
             color: $deep;
         }
     }
