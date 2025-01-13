@@ -181,6 +181,39 @@
     }
 
 }
+@keyframes titlebottom {
+    10% {
+        opacity: 0.8;
+        transform: translateX(400px);
+    }
+
+    30% {
+        opacity: 0.2;
+        transform: translateX(0px);
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    60% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.2;
+    }
+
+
+    100% {
+        opacity: 0.8;
+    }
+
+}
 
 //hitimg
 @keyframes hitImg {
@@ -248,7 +281,7 @@
     }
 
     100% {
-        opacity: 0.8;
+        opacity: 1;
     }
 
 }

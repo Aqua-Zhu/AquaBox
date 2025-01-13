@@ -256,16 +256,24 @@ body {
 
 // HIT區
 #hit {
+    #spaceX,#spaceX2{
+        height: 350px;
+    }
     .title {
         margin-bottom: 200px;
         position: relative;
         padding-bottom: 50px;
+        .titlewrapper{
+            opacity: 0;
+            animation: hitImg .25s 1.2s both;
+        }
         #hitTop {
             width: 50%;
             position: relative;
+            animation: hitImg .3s 1.2s;
             .titleTop1{
                 opacity: 0;
-                animation:  titletop .3s .9s both;
+                animation:  titletop .3s .5s both;
             }
             .titleTop2 {
                 opacity: 0;
@@ -273,7 +281,7 @@ body {
                 width: 25%;
                 bottom: 25%;
                 left: 35%;
-                animation:  titletop .3s 1s both;
+                animation:  titletop .3s .8s both;
             }
 
             .titleTop3 {
@@ -307,65 +315,78 @@ body {
             right: 0;
             bottom: 0;
             overflow: hidden;
+            animation: hitImg .3s 1.2s both;
             .hittopping{
                 position: absolute;
+                opacity: 0;
             }
             .WrapperTop{
+                opacity: 0;
                 width: 100%;
                 top: 0;
+                animation: titlebottom 0.3s both;
             }
             .Inner1{
                 width: 5%;
                 bottom: 45%;
                 right: 61%;
+                animation: titlebottom 0.3s 0.2s both;
             }
             .Inner2{
                 width: 5%;
                 bottom: 45%;
                 right: 56%;
+                animation: titlebottom 0.3s 0.25s both;
             }
             .Inner3{
                 width: 5%;
                 bottom: 45%;
                 right: 45%;
+                animation: titlebottom 0.3s 0.3s both;
             }
             .Inner4{
                 width: 15%;
                 bottom: 45%;
                 right: 30%;
+                animation: titlebottom 0.3s 0.4s both;
             }
             .Inner4-2{
                 width: 4.5%;
                 bottom: 44%;
                 right: 40%;
+                animation: titlebottom 0.3s 0.45s both;
             }
             .inner4-3{
                 width: 10%;
                 bottom: 45%;
                 right: 30%;
+                animation: titlebottom 0.3s 0.5s both;
             }
             .Inner5{
                 width: 25%;
                 bottom: 15%;
                 right: 2.8%;
                 transform: rotateY(180deg);
+                animation: titlebottom 0.3s 0.6s both;
             }
             .WrapperBottom{
                 width: 50%;
                 bottom: 0;
                 right: 8.3%;
+                animation: titlebottom 0.3s 0.7s both;
             }
 
         }
     }
 
     article {
-        margin: 250px 10%;
+        margin: 150px 10%;
     }
-
+    .hit01{
+        margin-top: 250px;
+    }
     .hit1 {
         display: flex;
-
         .hitimg {
             width: 50%;
             position: relative;
@@ -382,6 +403,7 @@ body {
                 width: 86%;
                 top: -2.5%;
                 left: -2.8%;
+                
             }
         }
 
@@ -414,7 +436,7 @@ body {
                 animation: shine .3s .3s both;
                 h3 {
                     font-size: $font-size-ex-hitTitle;
-                    padding-top: 8%;
+                    padding-top: 5%;
                     padding-left: 5%;
                     opacity: 0;
                     animation: hitImg .3s .5s both;
@@ -454,7 +476,7 @@ body {
 
                 .lineBlockStr {
                     top: -20%;
-                    left: -25%;
+                    left: -27%;
                     opacity: 0;
                     animation: shine .3s .2s  both;
                 }
@@ -492,7 +514,7 @@ body {
         }
     }
 
-    .hit2 {
+    .hit02 {
         transform: rotateY(180deg);
 
         h3,

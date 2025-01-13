@@ -9,8 +9,14 @@ export default function Home() {
     const hitRef = useRef(null);
     const newsRef = useRef(null);
     const aboutRef = useRef(null);
-    const hittitleRef = useRef(null);
+    const bannerRef = useRef(null);
+    const titleRef = useRef(null);
+    const hit1Ref = useRef(null);
+    const hit2Ref = useRef(null);
+    const hit3Ref = useRef(null);
+    const spaceXRef = useRef(null);
 
+    // const hitRefs = [hit1Ref, hit2Ref, hit3Ref];
 
     const resetStyle = {
         display: "none"
@@ -19,10 +25,15 @@ export default function Home() {
     const [buttonStyle, setButtonStyle] = useState(resetStyle);
     const [topbarStyle, setTopbarStyle] = useState(resetStyle);
     const [hitTitleStyle, setHitTitleStyle] = useState(resetStyle);
-    
+    const [hit1Style, setHit1Style] = useState(resetStyle);
+    const [hit2Style, setHit2Style] = useState(resetStyle);
+    const [hit3Style, setHit3Style] = useState(resetStyle);
+    const [spaceXStyle, setSpaceXStyle] = useState({});
+    const [spaceX2Style, setSpaceX2Style] = useState({});
 
     const handleScroll = () => {
-        const windowTop = window.innerHeight + 10; 
+        let gap = 300;
+        const windowTop = window.innerHeight + 10;
         if (window.scrollY >= windowTop) {
             setButtonStyle({
                 display: "flex",
@@ -37,29 +48,57 @@ export default function Home() {
             setTopbarStyle(resetStyle);
         }
 
-        const hitTitle = hittitleRef.current.offsetTop;
-        if(window.scrollY >= hitTitle){
+        const bannerPostion = bannerRef.current.offsetHeight;
+        const bannerTarget = (bannerPostion / 3) - 100;
+
+        if (window.scrollY >= bannerTarget) {
             setHitTitleStyle({
                 display: "flex",
                 flexDirection: 'column',
-            })
-        }else{
+            });
+        } else {
             setHitTitleStyle(resetStyle);
         }
-    };
 
-    // const scrollShow =()=>
-    //     {
-    //         let hitTitle = hittitleRef.current.offsetTop;
-    //         if(window.scrollY >= hitTitle){
-    //             setHitTitleStyle({
-    //                 display: "flex",
-    //             })
-    //         }else{
-    //             setHitTitleStyle(resetStyle);
-    //         }
-        
-    // }
+        /* hit1 */
+        const hit1Position = bannerTarget + titleRef.current.offsetHeight;
+        if (window.scrollY > hit1Position + gap) {
+            setHit1Style({
+                display: "flex",
+            })
+            setTimeout(setSpaceXStyle(resetStyle),500);
+            
+        } else {
+            setHit1Style(resetStyle);
+            setSpaceXStyle({});
+        }
+
+        /* hit2 */
+        const hit2Position = hit1Position + gap
+        if (window.scrollY > hit2Position + gap * 3) {
+            setTimeout(            
+                setHit2Style({
+                display: "flex",
+            }),700);
+
+        } else {
+            setHit2Style(resetStyle);
+        }
+
+        /* hit3 */
+        const hit3Position = hit2Position + gap
+        if (window.scrollY > hit3Position + gap * 3.5) {
+            setTimeout(            
+                setHit3Style({
+                display: "flex",
+            }),700);
+            setSpaceX2Style(resetStyle);
+        } else {
+            setHit3Style(resetStyle);
+            setSpaceX2Style({});
+        }
+
+    };
 
     useEffect(() => {
         // window.scrollTo(0,0);
@@ -69,24 +108,18 @@ export default function Home() {
         // setTimeout(()=>{
         //     document.body.style.overflow = 'auto';
         // },3400)
+        // console.log(bannerRef);
 
         //滾到指定位置，讓hitTitile出現
-        // window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
         // window.addEventListener("scroll", scrollShow);
         return () => {
-            // window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleScroll);
             // window.removeEventListener("scroll", scrollShow);
         };
 
 
     }, []);
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", scrollShow);
-    //     return () => {
-    //         window.removeEventListener("scroll", scrollShow);
-    //     };
-    // }, []);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -138,19 +171,19 @@ export default function Home() {
 
 
             {/* Banner區 */}
-            <header id="banner">
+            <header id="banner" ref={bannerRef}>
                 <img src="./images/banner-border.png" alt="" />
                 <h2>Biomonster Vault</h2>
                 <button id="bannerBtn">
                     <span id="bannerBtnBlock1"></span>
                     <span id="bannerBtnBlock2"></span>
-                    <p id="bannerBtnText"><Link to = '/post'>POST &gt;</Link></p>
+                    <p id="bannerBtnText"><Link to='/post'>POST &gt;</Link></p>
                 </button>
             </header>
             <main>
                 {/* hit */}
-                <section id="hit" ref={hitRef}>
-                    <header className="title" ref={hittitleRef} style={hitTitleStyle}>
+                <section id="hit">
+                    <header className="title" style={hitTitleStyle} ref={titleRef} >
                         <figure id="hitTop">
                             <img src="./images/TitleWrapperShort.svg" className="titleTop1"></img>
                             <img src="./images/TitleInnerShort.svg" className="titleTop2"></img>
@@ -163,7 +196,7 @@ export default function Home() {
                         </div>
 
                         <figure id="hitBottom">
-                        <img src="./images/TitleBottomWrapperTop.svg" alt="" className="WrapperTop hittopping" />
+                            <img src="./images/TitleBottomWrapperTop.svg" alt="" className="WrapperTop hittopping" />
                             <img src="./images/TitleBottomInner1-yellow.svg" alt="" className="Inner1 hittopping" />
                             <img src="./images/TitleBottomInner2-yellow.svg" alt="" className="Inner2 hittopping" />
                             <img src="./images/TitleBottomInner3-yellow.svg" alt="" className="Inner3 hittopping" />
@@ -172,10 +205,11 @@ export default function Home() {
                             <img src="./images/TitleBottomInner5-yellow.svg" alt="" className="inner4-3 hittopping" />
                             <img src="./images/TitleInnerShort.svg" alt="" className="Inner5 hittopping" />
                             <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="WrapperBottom hittopping" />
-                            
+
                         </figure>
                     </header>
-                    <article className="hit1">
+                    <div id="spaceX" style={spaceXStyle} ref={spaceXRef}></div>
+                    <article className="hit1 hit01" ref={hit1Ref} style={hit1Style}>
                         <figure className="hitimg">
                             <img className="hit1img" src="./images/mon1.jpg" alt="" />
                             <img className="hitWrapper" src="./images/hitborderV-blue.png" alt="" />
@@ -191,12 +225,12 @@ export default function Home() {
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
                                 <h3>Creeper</h3>
                                 <p className="type">predatory/mammal/migratory</p>
-                                <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
+                                <p>The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/6/4</p>
                             </div>
                         </div>
                     </article>
-                    <article className="hit1 hit2">
+                    <article className="hit1 hit02" ref={hit2Ref} style={hit2Style}>
                         <figure className="hitimg">
                             <img className="hit1img" src="./images/mon2.jpg" alt="" />
                             <img className="hitWrapper" src="./images/hitborderV-yellow.png" alt="" />
@@ -210,14 +244,14 @@ export default function Home() {
                                 <div className="hitL1 hitborder"><img src="./images/FileContentBlock01-yellow.png" alt="" /></div>
                                 <div className="hitL2 hitborder"><img src="./images/FileContentBlock02-yellow.png" alt="" /></div>
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03-yellow.png" alt="" /></div>
-                                <h3>Creeper</h3>
+                                <h3>Cogi</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/11/12</p>
                             </div>
                         </div>
                     </article>
-                    <article className="hit1">
+                    <article className="hit1 hit03" ref={hit3Ref} style={hit3Style}>
                         <figure className="hitimg">
                             <img className="hit1img" src="./images/mon3.jpg" alt="" />
                             <img className="hitWrapper" src="./images/hitborderV-blue.png" alt="" />
@@ -231,13 +265,14 @@ export default function Home() {
                                 <div className="hitL1 hitborder"><img src="./images/FileContentBlock01.svg" alt="" /></div>
                                 <div className="hitL2 hitborder"><img src="./images/FileContentBlock02.svg" alt="" /></div>
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
-                                <h3>Creeper</h3>
+                                <h3>Elsvt</h3>
                                 <p className="type">predatory/mammal/migratory</p>
                                 <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/12/25</p>
                             </div>
                         </div>
                     </article>
+                    <div id="spaceX2" style={spaceX2Style}></div>
                 </section>
                 <section id="news" ref={newsRef}>
                     <header className="title" id="newsTitle">
