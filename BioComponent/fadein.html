@@ -38,19 +38,25 @@ body, html {
     width: 200px;
     height: 200px;
     transform: translateX(-50%) scale(0.5); /* 初始縮小 */
-    font-size: 24px;
+    font-size: 3rem;
+    font-weight: bold;
     opacity: 1; /* 預設透明 */
     transition: opacity 0.3s ease, transform 0.3s ease;
     will-change: opacity, transform;
-}
-.a{
     margin-top: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.b{
-    margin-top: 250vh;
+#a{
+    /* margin-top: 60vh; */
+
 }
-.c{
-    margin-top: 180vh;
+#b{
+    /* margin-top: 250vh; */
+}
+#c{
+    /* margin-top: 180vh; */
 }
 
 </style>
@@ -59,30 +65,49 @@ body, html {
 
     <div class="parallax-background"></div>
     <div class="content">
-        <div class="floating-object" data-start="100" data-end="500">物件 1</div>
-        <div class="floating-object" data-start="600" data-end="1000">物件 2</div>
-        <div class="floating-object" data-start="1100" data-end="1500">物件 3</div>
+        <div class="floating-object " id="a" data-start="100" data-end="500">物件 1</div>
+        <div class="floating-object " id="b" data-start="600" data-end="1000">物件 2</div>
+        <div class="floating-object " id="c" data-start="1100" data-end="1500">物件 3</div>
     </div>
     <script>
 
 document.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
-
-    document.querySelectorAll(".floating-object").forEach((object) => {
-        const start = parseInt(object.dataset.start, 10);
-        const end = parseInt(object.dataset.end, 10);
-        const range = end - start;
-
-        if (scrollTop > start && scrollTop < end) {
-            const progress = (scrollTop - start) / range; // 計算滾動進度 (0~1)
-            object.style.opacity = 1; // 淡入
-            object.style.transform = `translateX(${progress * 50}%) scale(${0.5 + progress * 0.5})`;
-        } else {
-            object.style.opacity = 0; // 淡出
-            object.style.transform = `translateX(0%) scale(0.5)`; // 回到初始位置
-        }
-    });
+    let a = document.getElementById('a')
+    // a.getAttribute('offsetTop')
+    // console.dir(a);
+    //  offsetTop => 551
+    if(scrollTop> a.offsetTop){
+        
+        
+    }
 });
+
+// 往右移動且向下位移scrollY的距離才能在視覺上平行向右
+// 三個區域要疊在同一個位置上
+// scale值隨scrollY的值增加
+// 最後消失 => opcity:0;
+
+
+
+// document.addEventListener("scroll", () => {
+//     const scrollTop = window.scrollY;
+
+//     document.querySelectorAll(".floating-object").forEach((object) => {
+//         const start = parseInt(object.dataset.start, 10);
+//         const end = parseInt(object.dataset.end, 10);
+//         const range = end - start;
+
+//         if (scrollTop > start && scrollTop < end) {
+//             const progress = (scrollTop - start) / range; // 計算滾動進度 (0~1)
+//             object.style.opacity = 1; // 淡入
+//             object.style.transform = `translateX(${progress * 50}%) scale(${0.5 + progress * 0.5})`;
+//         } else {
+//             object.style.opacity = 0; // 淡出
+//             object.style.transform = `translateX(0%) scale(0.5)`; // 回到初始位置
+//         }
+//     });
+// });
 
     </script>
 

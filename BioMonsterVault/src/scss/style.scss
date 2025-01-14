@@ -66,13 +66,11 @@ body {
 
 
 #rain {
-    // width: 100%;
-    // height: 100vh;
-    // display: block;
     position: fixed;
+    z-index: -1;
 }
 
-.totopWrapper{
+.totopWrapper {
     .toTop-btn {
         background-color: transparent;
         border: none;
@@ -84,29 +82,34 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+
         .totop1 {
             width: 40%;
         }
-    
+
         .totop2 {
             width: 55%;
         }
-    
+
         .totop3 {
             width: 60%;
             margin-top: 20px;
         }
-        &:hover{
+
+        &:hover {
             animation: glitch-clip 0.3s 0.1s both;
-            .totop1{
+
+            .totop1 {
                 animation: totop 0.3s both;
                 // animation: glitch-clip 0.15s 0.2s both;
             }
-            .totop2{
+
+            .totop2 {
                 animation: totop 0.3s 0.05s both;
                 // animation: glitch-clip 0.15s 0.3s both;
             }
-            .totop3{
+
+            .totop3 {
                 animation: totop 0.3s 0.1s both;
                 // animation: glitch-clip 0.15s 0.4s both;
             }
@@ -227,6 +230,7 @@ body {
 
         #barlist {
             display: none;
+
             // display: flex;
             li {
                 margin: 0 50px;
@@ -235,27 +239,31 @@ body {
                 font-family: 'NicoMoji';
                 font-size: $font-size-l;
                 color: $color-font-green;
-                list-style-type: disc ;
+                list-style-type: disc;
                 border-bottom: 3px solid transparent;
                 transition: .3s;
-                &:hover{
+
+                &:hover {
                     animation: shine .2s;
                     border-bottom: 3px solid $color-font-green;
                     opacity: 0.5;
                 }
             }
-            &.exhamburger{
+
+            &.exhamburger {
                 height: 100%;
                 padding-bottom: 50px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
-                border:3px $color-font-green solid;
+                border: 3px $color-font-green solid;
                 border-radius: 0 0 0 80px;
-                background-color: $color-navBg;
+                background-color: rgba(58, 75, 66, 0.8);
+                ;
                 animation: glitch-clip .3s;
-                a{
-                    color:  $color-font-green;
+
+                a {
+                    color: $color-font-green;
                 }
             }
         }
@@ -270,6 +278,7 @@ body {
         cursor: pointer;
         position: relative;
         z-index: 99;
+
         .bar {
             background-color: $color-main-yellow;
             width: 24px;
@@ -281,11 +290,13 @@ body {
         }
 
         &.click {
-            // margin-top: 50px;
+
             padding-top: 50px;
+
             .bar {
                 background-color: $color-font-green;
                 animation: glitch-clip .3s;
+
                 &:nth-child(1) {
 
                     transform: rotate(45deg) translateY(6px) translateX(5px);
@@ -298,11 +309,13 @@ body {
                 &:nth-child(3) {
                     transform: rotate(-45deg) translateY(-6px) translateX(5px);
                 }
-                &:hover{
+
+                &:hover {
                     animation: shine .3s;
                 }
             }
-            &:hover{
+
+            &:hover {
                 opacity: 0.5;
             }
         }
@@ -715,10 +728,36 @@ body {
 
 // NEWS區
 #news {
+    overflow: hidden;
+    position: relative;
+    // z-index: 98;
+    #scrollSpace{
+        height: 500vh;
+    }
+    #news-1 {
+        width: 60%;
+        z-index: 15;
+    }
+
+    #news-2 {
+        top: 600px;
+        left: -20px;
+        width: 60%;
+        opacity: 0.4;
+        z-index: 10;
+    }
+
+    #news-3 {
+        top: 620px;
+        left: -50px;
+        width: 60%;
+        opacity: 0.2;
+    }
 
     .newsLineText {
         font-family: 'Linebeam';
         color: $color-main-blue;
+
     }
 
     .title {
@@ -822,10 +861,12 @@ body {
 
     .newsContent {
         margin: 10%;
+        position: absolute;
 
         .newsLine1 {
             width: 45%;
             padding-left: 20%;
+            padding-bottom: 70px;
             position: relative;
             line-height: $font-size-ex-m;
 
@@ -1036,6 +1077,7 @@ body {
     z-index: 2;
     width: 18%;
     margin-left: 45%;
+    margin-top: 1000px;
 }
 
 //more-btn
@@ -1326,6 +1368,7 @@ footer {
         flex-direction: column;
         margin: 0;
         animation: bannershine 3.2s;
+
         label {
             margin: 20px 0 10px;
             color: $color-main-yellow;

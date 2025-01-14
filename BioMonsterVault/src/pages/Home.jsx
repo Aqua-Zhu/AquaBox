@@ -12,9 +12,13 @@ export default function Home() {
     const hit1Ref = useRef(null);
     const hit2Ref = useRef(null);
     const hit3Ref = useRef(null);
+    const news1Ref = useRef(null);
+    const news2Ref = useRef(null);
+    const news3Ref = useRef(null);
     const spaceXRef = useRef(null);
-    const hamburgerRef =useRef(null);
+    const hamburgerRef = useRef(null);
     const barlistRef = useRef(null);
+
 
     // const hitRefs = [hit1Ref, hit2Ref, hit3Ref];
 
@@ -31,8 +35,11 @@ export default function Home() {
     const [spaceXStyle, setSpaceXStyle] = useState({});
     const [spaceX2Style, setSpaceX2Style] = useState({});
     const [newsTitleStyle, setNewsTitleStyle] = useState(resetStyle);
-    const [hamburgerStyle, setHamburgerStyle] =useState({});
-    
+    const [hamburgerStyle, setHamburgerStyle] = useState({});
+    const [news1Style, setNews1Style] = useState({})
+    const [news2Style, setNews2Style] = useState({ paddingBottom: '70px' })
+    const [news3Style, setNews3Style] = useState({ paddingBottom: '70px' })
+    const [newsStyle, setNewsStyle] = useState({})
 
 
     //過場動畫
@@ -117,20 +124,109 @@ export default function Home() {
             setSpaceX2Style({});
         }
 
+        /* news1 */
 
+        // console.dir(news1Ref);//476
+        // console.dir(newsRef);//2535
+        let news1Top = newsRef.current.offsetTop + news1Ref.current.offsetTop - 180;
+        let moveY = window.scrollY - news1Top;
+        // console.log(moveY);//1253
+
+        // 設定scrollspace讓過場走完 => <div id="scrollSpace"></div>
+
+        // 三個區域要疊在同一個位置上 => position:abosulte
+        // let aboutTop = aboutRef.current.offsetTop
+        // 最後消失 => opcity:0;
+        // news1 置中 => 4617 
+        // new1 要消失的位置 => 5054
+        // new2 出現 => 4973 
+        // new2 要消失的位置 => 5046/5135
+        if (window.scrollY > news1Top && moveY < 1255) {
+            setNews1Style({
+                // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
+                // scale值隨scrollY的值增加
+                transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
+                //正常顯示
+            });
+            setNews2Style({ transform: `translateY(${moveY - 40}px) scale(${1 + moveY / 2300})`, });
+            setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+            if (window.scrollY > 4750 && window.scrollY < 4900) {
+                setNews1Style({
+                    transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
+                    opacity: 700 / (window.scrollY - 3617),
+                })
+                setNews2Style({ 
+                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                    opacity:0.4 + (window.scrollY - 3750)/3000,
+                    //(window.scrollY - 4750)/1500
+                });
+                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+            } else if (window.scrollY >= 4900 && window.scrollY<5100) {
+                // new1消失
+
+                setNews1Style({
+                    transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
+                    //快淡出
+                    opacity: 150 / (window.scrollY - 3617),
+                })
+                setNews2Style({ 
+                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})` ,
+                    zIndex:'16',
+                    opacity:1,
+                });
+                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+            } else if(window.scrollY >= 5100){
+                // new2消失
+
+                setNews1Style({opacity:0,})
+                setNews2Style({ 
+                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})` ,
+                    //快淡出
+                    opacity: 100 / (window.scrollY - 4900),
+                })
+                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+            }
+
+
+            // if (window.scrollY > 4385) {
+            //     document.body.style.overflowX = 'hidden';
+            //     // setTimeout(() => {
+            //     //     document.body.style.overflowX = 'auto';
+            //     // }, 1000)
+            // };
+
+        } else {
+            setNews1Style({})
+        }
     };
 
     //漢堡動畫
-
     const holdHamburger = () => {
         hamburgerRef.current.classList.toggle('click');
         barlistRef.current.classList.toggle('exhamburger');
         setHamburgerStyle({});
-        setHamburgerStyle({animation:'glitch-clip .3s .5s'});
+        setHamburgerStyle({ animation: 'glitch-clip .3s .5s' });
         // setTimeout(setHamburgerStyle({animation:'glitch-clip .3s'}),500);
 
         // setHamburgerStyleClose({animation:'glitch-clip .3s .5s'})
-    }
+    };
+
+    //news視差
+
+    // const newsRollOn = () => {
+    //     let news1Top = news1Ref.current.offsetTop;
+    //     let moveY = window.scrollY - news1Top;
+    //     // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
+    //     // 三個區域要疊在同一個位置上 => position:abosulte
+    //     // scale值隨scrollY的值增加
+    //     // 最後消失 => opcity:0;
+    //     if (window.scrollY > news1Top) {
+    //         setNews1Style({
+    //             transform: `translateY(${moveY})`,
+    //         })
+    //     }
+
+    // };
 
     useEffect(() => {
         // window.scrollTo(0,0);
@@ -156,19 +252,19 @@ export default function Home() {
             top: hitRef.current.offsetTop,
             behavior: 'smooth',
         })
-    }
+    };
     const scrollToNews = () => {
         window.scrollTo({
             top: newsRef.current.offsetTop,
             behavior: 'smooth',
         })
-    }
+    };
     const scrollToAbout = () => {
         window.scrollTo({
             top: aboutRef.current.offsetTop,
             behavior: 'smooth',
         })
-    }
+    };
 
 
     return (
@@ -180,11 +276,12 @@ export default function Home() {
             <div id="topbar" style={topbarStyle}>
                 <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
                 <nav>
-                    <ul id="barlist"  ref={barlistRef}>
+                    <ul id="barlist" ref={barlistRef}>
                         <li><Link onClick={scrollToHit}>HIT</Link></li>
                         <li><Link onClick={scrollToNews} >NEWS</Link></li>
                         <li><Link to='/post'>POST</Link></li>
                         <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
+                        <li><Link onClick={scrollToTop}>TOP</Link></li>
                     </ul>
                 </nav>
                 {/* <Hamburger /> */}
@@ -310,7 +407,8 @@ export default function Home() {
                     </article>
                     <div id="spaceX2" style={spaceX2Style}></div>
                 </section>
-                <section id="news" ref={newsRef} >
+                {/* news */}
+                <section id="news" ref={newsRef} style={newsStyle}>
                     <header className="title" id="newsTitle" style={newsTitleStyle}>
                         <figure id="newsTop">
                             {/* <img src="./images/TitleTopShort-blue.svg" alt="" /> */}
@@ -332,12 +430,12 @@ export default function Home() {
                             <img src="./images/TitleBottomWrapperBottom.svg" alt="" className="WrapperBottom newstopping" />
                         </figure>
                     </header>
-                    <article className="newsContent" id="news-1">
+                    <article className="newsContent" id="news-1" style={news1Style} ref={news1Ref}>
                         <div className="newsLine1">
-                            <h3 className="newsLine1Text newsLineText">spaceship</h3>
-                            <p className="newsLine1Textsec newsLineText">12.02.24</p>
+                            {/* <h3 className="newsLine1Text newsLineText">spaceship</h3> */}
+                            {/* <p className="newsLine1Textsec newsLineText">12.02.24</p> */}
                             <div className="topping">
-                                <img className="shipblock" src="./images/NewsTitleMain.svg" alt="" />
+                                <img className="shipblock" src="./images/NewsTitleMain01.svg" alt="" />
                                 <img className="NewsTitle01" src="./images/NewsTitle01.svg" alt="" />
                                 <img className="NewsTitle02" src="./images/NewsTitle02.svg" alt="" />
                                 <img className="NewsTitle03" src="./images/NewsTitle03.svg" alt="" />
@@ -382,12 +480,12 @@ export default function Home() {
                         </figure>
 
                     </article>
-                    <article className="newsContent" id="news-2">
+                    <article className="newsContent" id="news-2" style={news2Style} ref={news2Ref}>
                         <div className="newsLine1">
-                            <h3 className="newsLine1Text newsLineText">spaceship</h3>
-                            <p className="newsLine1Textsec newsLineText">11.25.24</p>
+                            {/* <h3 className="newsLine1Text newsLineText">spaceship</h3> */}
+                            {/* <p className="newsLine1Textsec newsLineText">11.25.24</p> */}
                             <div className="topping">
-                                <img className="shipblock" src="./images/NewsTitleMain.svg" alt="" />
+                                <img className="shipblock" src="./images/NewsTitleMain01.svg" alt="" />
                                 <img className="NewsTitle01" src="./images/NewsTitle01.svg" alt="" />
                                 <img className="NewsTitle02" src="./images/NewsTitle02.svg" alt="" />
                                 <img className="NewsTitle03" src="./images/NewsTitle03.svg" alt="" />
@@ -432,12 +530,12 @@ export default function Home() {
                         </figure>
 
                     </article>
-                    <article className="newsContent" id="news-3">
+                    <article className="newsContent" id="news-3" style={news3Style} ref={news3Ref}>
                         <div className="newsLine1">
-                            <h3 className="newsLine1Text newsLineText">spaceship</h3>
-                            <p className="newsLine1Textsec newsLineText">11.22.24</p>
+                            {/* <h3 className="newsLine1Text newsLineText">spaceship</h3> */}
+                            {/* <p className="newsLine1Textsec newsLineText">11.22.24</p> */}
                             <div className="topping">
-                                <img className="shipblock" src="./images/NewsTitleMain.svg" alt="" />
+                                <img className="shipblock" src="./images/NewsTitleMain01.svg" alt="" />
                                 <img className="NewsTitle01" src="./images/NewsTitle01.svg" alt="" />
                                 <img className="NewsTitle02" src="./images/NewsTitle02.svg" alt="" />
                                 <img className="NewsTitle03" src="./images/NewsTitle03.svg" alt="" />
@@ -482,7 +580,7 @@ export default function Home() {
                         </figure>
 
                     </article>
-
+                    <div id="scrollSpace"></div>
                     <figure><img id="moreLine" src="./images/more-line.svg" alt="" /></figure>
                     <button id="moreBtn">MORE
                         <img id="circle1" src="./images/more-circle1.svg" alt="" className="" />
