@@ -732,7 +732,7 @@ body {
     position: relative;
     // z-index: 98;
     #scrollSpace{
-        height: 500vh;
+        height: 70vh;
     }
     #news-1 {
         width: 60%;
@@ -1095,6 +1095,7 @@ body {
     height: 30vh;
     font-family: 'Linebeam';
     font-size: $font-size-xxxxl;
+    z-index: 99;
     cursor: pointer;
 
     img {

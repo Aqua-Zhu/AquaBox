@@ -128,7 +128,7 @@ export default function Home() {
 
         // console.dir(news1Ref);//476
         // console.dir(newsRef);//2535
-        let news1Top = newsRef.current.offsetTop + news1Ref.current.offsetTop - 180;
+        let news1Top = newsRef.current.offsetTop + news1Ref.current.offsetTop - 180; //2831
         let moveY = window.scrollY - news1Top;
         // console.log(moveY);//1253
 
@@ -141,6 +141,9 @@ export default function Home() {
         // new1 要消失的位置 => 5054
         // new2 出現 => 4973 
         // new2 要消失的位置 => 5046/5135
+        // new3 停止 => 5184
+
+
         if (window.scrollY > news1Top && moveY < 1255) {
             setNews1Style({
                 // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
@@ -155,13 +158,13 @@ export default function Home() {
                     transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
                     opacity: 700 / (window.scrollY - 3617),
                 })
-                setNews2Style({ 
-                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
-                    opacity:0.4 + (window.scrollY - 3750)/3000,
+                setNews2Style({
+                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                    opacity: 0.4 + (window.scrollY - 3750) / 3000,
                     //(window.scrollY - 4750)/1500
                 });
-                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
-            } else if (window.scrollY >= 4900 && window.scrollY<5100) {
+                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3400})`, });
+            } else if (window.scrollY >= 4900 && window.scrollY < 5100) {
                 // new1消失
 
                 setNews1Style({
@@ -169,34 +172,51 @@ export default function Home() {
                     //快淡出
                     opacity: 150 / (window.scrollY - 3617),
                 })
-                setNews2Style({ 
-                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})` ,
-                    zIndex:'16',
-                    opacity:1,
+                setNews2Style({
+                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                    zIndex: '16',
+                    opacity: 1,
                 });
-                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
-            } else if(window.scrollY >= 5100){
+                setNews3Style({
+                    transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                    opacity: 0.2 + (window.scrollY - 3900) / 2600,
+                });
+            } else if (window.scrollY >= 5100 && window.scrollY <= 5184) {
                 // new2消失
 
-                setNews1Style({opacity:0,})
-                setNews2Style({ 
-                    transform: `translate(${moveY-270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})` ,
+                setNews1Style({ opacity: 0, })
+                setNews2Style({
+                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
                     //快淡出
                     opacity: 100 / (window.scrollY - 4900),
                 })
-                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+                setNews3Style({
+                    transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                    zIndex: '17',
+                    opacity: 1,
+                });
+            } else if (window.scrollY > 5160) {
+                console.log(moveY);
+                setNews1Style({ opacity: 0, })
+                setNews2Style({
+                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                    //快淡出
+                    opacity: 100 / (window.scrollY - 4900),
+                });
+                setNews3Style({ // moveY=856
+                    
+                    
+                    transform: 'translate(265px,650px) scale(1.23)',
+                    // transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                    zIndex: '17',
+                    opacity: 1,
+                });
             }
-
-
-            // if (window.scrollY > 4385) {
-            //     document.body.style.overflowX = 'hidden';
-            //     // setTimeout(() => {
-            //     //     document.body.style.overflowX = 'auto';
-            //     // }, 1000)
-            // };
-
-        } else {
-            setNews1Style({})
+        }
+        else {
+            // setNews1Style({});
+            // setNews2Style({});
+            // setNews3Style({});
         }
     };
 
