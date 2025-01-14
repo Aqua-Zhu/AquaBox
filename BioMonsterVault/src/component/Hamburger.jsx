@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-export default function Hamburger() {
+export default function Hamburger({holdHamburger}) {
     const hamburgerRef =useRef(null);
     const hamburgerToggle = ()=>{
         hamburgerRef.current.classList.toggle('click')

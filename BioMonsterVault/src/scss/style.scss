@@ -79,21 +79,21 @@ body {
         position: fixed;
         z-index: 99;
         bottom: 5%;
-        right: 3%;
+        right: 2%;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
         .totop1 {
-            width: 55%;
+            width: 40%;
         }
     
         .totop2 {
-            width: 65%;
+            width: 55%;
         }
     
         .totop3 {
-            width: 65%;
+            width: 60%;
             margin-top: 20px;
         }
         &:hover{
@@ -118,28 +118,15 @@ body {
 
 .glitch {
     position: relative;
-    /* Animation provies a slight random skew. Check bottom of doc
-    for more information on how to random skew. */
-    // animation: glitch-skew 1s infinite linear alternate-reverse;
 
-    // Creates a copy before our text. 
     &::before {
-        // Duplicates our text with the mixin.
         @include glitchCopy;
-        // Scoots text slightly to the left for the color offset.
         left: 2px;
-        // Creates the color 'shadow' that happens on the glitch.
         text-shadow: -2px 0 $color-main-blue;
-        /* Creates an initial clip for our glitch. This works in
-        a typical top,right,bottom,left fashion and creates a mask
-        to only show a certain part of the glitch at a time. */
         clip: rect(44px, 450px, 56px, 0);
-        /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
-        with an alternating animation to keep things fresh. */
         animation: glitch-anim 5s infinite linear alternate-reverse;
     }
 
-    // Creates a copy after our text. Note comments from ::before.
     &::after {
         @include glitchCopy;
         left: -2px;
@@ -232,12 +219,44 @@ body {
     }
 
     nav {
-        ul {
-            display: flex;
+        position: absolute;
+        width: 15%;
+        height: 400px;
+        right: 0%;
+        top: 25px;
 
+        #barlist {
+            display: none;
+            // display: flex;
             li {
-                margin: 0 10px;
+                margin: 0 50px;
+                padding-left: 15px;
+                padding-bottom: 2px;
                 font-family: 'NicoMoji';
+                font-size: $font-size-l;
+                color: $color-font-green;
+                list-style-type: disc ;
+                border-bottom: 3px solid transparent;
+                transition: .3s;
+                &:hover{
+                    animation: shine .2s;
+                    border-bottom: 3px solid $color-font-green;
+                    opacity: 0.5;
+                }
+            }
+            &.exhamburger{
+                height: 100%;
+                padding-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                border:3px $color-font-green solid;
+                border-radius: 0 0 0 80px;
+                background-color: $color-navBg;
+                animation: glitch-clip .3s;
+                a{
+                    color:  $color-font-green;
+                }
             }
         }
     }
@@ -249,18 +268,24 @@ body {
         border: none;
         align-self: center;
         cursor: pointer;
-
+        position: relative;
+        z-index: 99;
         .bar {
             background-color: $color-main-yellow;
             width: 24px;
             height: 3px;
             margin: 5px auto;
             display: block;
-            transition: .5s;
+            // transition: .5s;
+            // animation: glitch-clip .3s;
         }
 
         &.click {
+            // margin-top: 50px;
+            padding-top: 50px;
             .bar {
+                background-color: $color-font-green;
+                animation: glitch-clip .3s;
                 &:nth-child(1) {
 
                     transform: rotate(45deg) translateY(6px) translateX(5px);
@@ -273,6 +298,12 @@ body {
                 &:nth-child(3) {
                     transform: rotate(-45deg) translateY(-6px) translateX(5px);
                 }
+                &:hover{
+                    animation: shine .3s;
+                }
+            }
+            &:hover{
+                opacity: 0.5;
             }
         }
     }
@@ -1265,6 +1296,8 @@ footer {
 
             &:hover {
                 border-bottom: 3px solid black;
+                animation: shine .2s;
+                opacity: 0.4;
             }
         }
     }

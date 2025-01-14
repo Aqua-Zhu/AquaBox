@@ -57,7 +57,7 @@
         transform: translateY(-30px);
     }
     100%{
-        opacity: 0.8;
+        opacity: 0.85;
         transform: translateY(-30px);
     }
 }
@@ -95,40 +95,45 @@
         }
     }
 }
+
 @keyframes glitch-clip {
     20%{
         clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-        // background-color: $color-main-blue;
     }
     74%,
     30%{
+        transform: translateX(80px);
         clip-path:  polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
     }
     63%,
     40%{
+        transform: translateX(-30px);
         clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
-        // background-color: $color-font-green;
     }
     92%,
     50%{
+        transform: translateX(5px);
         clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
     }
     43%,
     60%{
+        transform: translateY(20px);
         clip-path:  polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-        // background-color: $color-main-yBg;
     }
     15%,
     70%{
+        transform: translateY(-50px);
         clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
     }
     5%,
     80%{
+        transform: translateY(5px);
         clip-path:  polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-        // background-color: $color-main-yellow;
     }
     100%{
-        opacity: 0.7;
+        transform: translateY(0px);
+        transform: translateX(0px);
+        opacity: 0.8;
     }
 }
 

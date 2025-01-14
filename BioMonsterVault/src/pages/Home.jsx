@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import Rain from "../component/Rain";
 import { useEffect, useRef, useState } from "react";
-import $ from 'jquery';
-import TapbarToTop from "../component/TapbarToTop";
-import Hamburger from "../component/hamburger";
 
 export default function Home() {
 
@@ -16,6 +13,8 @@ export default function Home() {
     const hit2Ref = useRef(null);
     const hit3Ref = useRef(null);
     const spaceXRef = useRef(null);
+    const hamburgerRef =useRef(null);
+    const barlistRef = useRef(null);
 
     // const hitRefs = [hit1Ref, hit2Ref, hit3Ref];
 
@@ -32,6 +31,9 @@ export default function Home() {
     const [spaceXStyle, setSpaceXStyle] = useState({});
     const [spaceX2Style, setSpaceX2Style] = useState({});
     const [newsTitleStyle, setNewsTitleStyle] = useState(resetStyle);
+    const [hamburgerStyle, setHamburgerStyle] =useState({});
+    
+
 
     //過場動畫
     const handleScroll = () => {
@@ -55,7 +57,7 @@ export default function Home() {
         const bannerPostion = bannerRef.current.offsetHeight;
         const bannerTarget = (bannerPostion / 3) - 100;
 
-        /* hitTitle */ 
+        /* hitTitle */
         if (window.scrollY >= bannerTarget) {
             setHitTitleStyle({
                 display: "flex",
@@ -71,8 +73,8 @@ export default function Home() {
             setHit1Style({
                 display: "flex",
             })
-            setTimeout(setSpaceXStyle(resetStyle),500);
-            
+            setTimeout(setSpaceXStyle(resetStyle), 500);
+
         } else {
             setHit1Style(resetStyle);
             setSpaceXStyle({});
@@ -81,10 +83,10 @@ export default function Home() {
         /* hit2 */
         const hit2Position = hit1Position + hit1Ref.current.offsetHeight;
         if (window.scrollY > hit2Position + gap) {
-            setTimeout(            
+            setTimeout(
                 setHit2Style({
-                display: "flex",
-            }),700);
+                    display: "flex",
+                }), 700);
 
         } else {
             setHit2Style(resetStyle);
@@ -92,23 +94,23 @@ export default function Home() {
 
         /* hit3 */
         const hit3Position = hit2Position + hit2Ref.current.offsetHeight;
-        if (window.scrollY > hit3Position + gap*2) {
-            setTimeout(            
+        if (window.scrollY > hit3Position + gap * 2) {
+            setTimeout(
                 setHit3Style({
-                display: "flex",
-            }),700);
+                    display: "flex",
+                }), 700);
         } else {
             setHit3Style(resetStyle);
         }
 
-        /* newsTitle */ 
+        /* newsTitle */
         const newsPosition = hit3Position + hit3Ref.current.offsetHeight;
-        if (window.scrollY > newsPosition + gap*2 ) {
-            setTimeout(        
+        if (window.scrollY > newsPosition + gap * 2) {
+            setTimeout(
                 setNewsTitleStyle({
-                display: "flex",
-                flexDirection: 'column',
-            }),700);
+                    display: "flex",
+                    flexDirection: 'column',
+                }), 700);
             setSpaceX2Style(resetStyle);
         } else {
             setNewsTitleStyle(resetStyle);
@@ -118,7 +120,18 @@ export default function Home() {
 
     };
 
-    
+    //漢堡動畫
+
+    const holdHamburger = () => {
+        hamburgerRef.current.classList.toggle('click');
+        barlistRef.current.classList.toggle('exhamburger');
+        setHamburgerStyle({});
+        setHamburgerStyle({animation:'glitch-clip .3s .5s'});
+        // setTimeout(setHamburgerStyle({animation:'glitch-clip .3s'}),500);
+
+        // setHamburgerStyleClose({animation:'glitch-clip .3s .5s'})
+    }
+
     useEffect(() => {
         // window.scrollTo(0,0);
 
@@ -127,19 +140,12 @@ export default function Home() {
         // setTimeout(()=>{
         //     document.body.style.overflow = 'auto';
         // },3400)
-        // console.log(bannerRef);
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
-        // console.dir(hit3Ref.current);
-        // window.addEventListener("scroll", scrollShow);
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            // window.removeEventListener("scroll", scrollShow);
         };
-        
-        
-
     }, []);
 
     const scrollToTop = () => {
@@ -162,7 +168,6 @@ export default function Home() {
             top: aboutRef.current.offsetTop,
             behavior: 'smooth',
         })
-
     }
 
 
@@ -175,23 +180,28 @@ export default function Home() {
             <div id="topbar" style={topbarStyle}>
                 <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
                 <nav>
-                    <ul>
+                    <ul id="barlist"  ref={barlistRef}>
                         <li><Link onClick={scrollToHit}>HIT</Link></li>
                         <li><Link onClick={scrollToNews} >NEWS</Link></li>
                         <li><Link to='/post'>POST</Link></li>
                         <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                     </ul>
                 </nav>
-                <Hamburger/>
+                {/* <Hamburger /> */}
+                <button className="hamburger" style={hamburgerStyle} ref={hamburgerRef} onClick={holdHamburger}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </button>
             </div>
-        <div className="totopWrapper" style={buttonStyle}>
-        <button className="toTop-btn" onClick={scrollToTop} >
+            <div className="totopWrapper" style={buttonStyle} >
+                <button className="toTop-btn" onClick={scrollToTop} >
                     {/* <img src="./images/TopBtnLight.svg" alt="" /> */}
                     <img src="./images/totop-1.svg" alt="" className="totop1" />
                     <img src="./images/totop-2.svg" alt="" className="totop2" />
                     <img src="./images/totop-3.svg" alt="" className="totop3" />
                 </button>
-        </div>
+            </div>
 
 
 
@@ -301,7 +311,7 @@ export default function Home() {
                     <div id="spaceX2" style={spaceX2Style}></div>
                 </section>
                 <section id="news" ref={newsRef} >
-                    <header className="title" id="newsTitle"  style={newsTitleStyle}>
+                    <header className="title" id="newsTitle" style={newsTitleStyle}>
                         <figure id="newsTop">
                             {/* <img src="./images/TitleTopShort-blue.svg" alt="" /> */}
                             <img src="./images/TitleWrapperShort.svg" alt="" className="titleTop1" />
