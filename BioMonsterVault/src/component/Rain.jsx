@@ -16,22 +16,22 @@ export default function Rain() {
         var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
         // letters = letters.split('');
 
-        // Initialising the canvas
+
         var canvas = document.querySelector('canvas');
         var ctx = canvas.getContext('2d');
-        // Setting the width and height of the canvas
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        // Setting up the columns
+
         var fontSize = 10;
         var columns = canvas.width / fontSize;
-        // Setting up the drops
+
         var drops = [];
         for (var x = 0; x < columns; x++) {
             drops[x] = 1;
         }
 
-        // Setting up the draw function
+
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, .06)';
             // fillRect(x, y, width, height)
@@ -52,7 +52,7 @@ export default function Rain() {
             }
         }
         // Loop the animation
-        setInterval(draw, 30);
+        setInterval(draw, 25);
     }, [])
 
     return (

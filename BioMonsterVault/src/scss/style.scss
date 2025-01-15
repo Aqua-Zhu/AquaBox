@@ -329,7 +329,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: bannershine 3.2s;
+    animation: bannershine 2.7s;
 
     h2 {
         position: absolute;
@@ -1154,6 +1154,12 @@ body {
             animation: circ3 4s linear infinite;
         }
 
+        #circle3{
+            animation: shinetopost .7s  infinite;
+        }
+        #circle5{
+            animation: shine .8s  infinite;
+        }
     }
 }
 

@@ -196,7 +196,7 @@ export default function Home() {
                     opacity: 1,
                 });
             } else if (window.scrollY > 5160) {
-                console.log(moveY);
+                // console.log(moveY);
                 setNews1Style({ opacity: 0, })
                 setNews2Style({
                     transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
@@ -249,13 +249,13 @@ export default function Home() {
     // };
 
     useEffect(() => {
-        // window.scrollTo(0,0);
+        window.scrollTo(0,0);
 
         // 看完banner動畫才能滾動
-        // document.body.style.overflow = 'hidden';
-        // setTimeout(()=>{
-        //     document.body.style.overflow = 'auto';
-        // },3400)
+        document.body.style.overflow = 'hidden';
+        setTimeout(()=>{
+            document.body.style.overflow = 'auto';
+        },3000)
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
