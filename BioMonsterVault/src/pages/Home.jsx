@@ -18,6 +18,7 @@ export default function Home() {
     const spaceXRef = useRef(null);
     const hamburgerRef = useRef(null);
     const barlistRef = useRef(null);
+    // const newscoordinateRef = useRef(null);
 
 
     // const hitRefs = [hit1Ref, hit2Ref, hit3Ref];
@@ -39,11 +40,11 @@ export default function Home() {
     const [news1Style, setNews1Style] = useState({})
     const [news2Style, setNews2Style] = useState({ paddingBottom: '70px' })
     const [news3Style, setNews3Style] = useState({ paddingBottom: '70px' })
-    const [newsStyle, setNewsStyle] = useState({})
 
 
     //過場動畫
     const handleScroll = () => {
+        /* topbar */
         let gap = 350;
         const windowTop = window.innerHeight + 10;
         if (window.scrollY >= windowTop) {
@@ -135,7 +136,6 @@ export default function Home() {
         // 設定scrollspace讓過場走完 => <div id="scrollSpace"></div>
 
         // 三個區域要疊在同一個位置上 => position:abosulte
-        // let aboutTop = aboutRef.current.offsetTop
         // 最後消失 => opcity:0;
         // news1 置中 => 4617 
         // new1 要消失的位置 => 5054
@@ -143,6 +143,18 @@ export default function Home() {
         // new2 要消失的位置 => 5046/5135
         // new3 停止 => 5184
 
+
+        const disableScroll = (duration = 1000) => {
+            // 禁用滾動且補償滾動條寬度
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight =' 10px';
+        
+            // 延遲後恢復滾動
+            setTimeout(() => {
+                document.body.style.overflow = 'auto';
+                document.body.style.paddingRight = ''; // 恢復原始 padding
+            }, duration);
+        };
 
         if (window.scrollY > news1Top && moveY < 1255) {
             setNews1Style({
@@ -156,7 +168,7 @@ export default function Home() {
             if (window.scrollY > 4750 && window.scrollY < 4900) {
                 setNews1Style({
                     transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
-                    opacity: 700 / (window.scrollY - 3617),
+                    opacity: 500 / (window.scrollY - 3617),
                 })
                 setNews2Style({
                     transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
@@ -179,8 +191,9 @@ export default function Home() {
                 });
                 setNews3Style({
                     transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
-                    opacity: 0.2 + (window.scrollY - 3900) / 2600,
+                    opacity: 0+ (window.scrollY - 3900) / 3500,
                 });
+                    // disableScroll();
             } else if (window.scrollY >= 5100 && window.scrollY <= 5184) {
                 // new2消失
 
@@ -204,8 +217,7 @@ export default function Home() {
                     opacity: 100 / (window.scrollY - 4900),
                 });
                 setNews3Style({ // moveY=856
-                    
-                    
+
                     transform: 'translate(265px,650px) scale(1.23)',
                     // transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
                     zIndex: '17',
@@ -219,43 +231,25 @@ export default function Home() {
             // setNews3Style({});
         }
     };
-
     //漢堡動畫
     const holdHamburger = () => {
         hamburgerRef.current.classList.toggle('click');
         barlistRef.current.classList.toggle('exhamburger');
-        setHamburgerStyle({});
+        //把class拿掉 hamburgerRef.current.classList.remove => 建立ref or state 來檢測漢堡是否為開啟狀態
+        setHamburgerStyle({animation: 'none'});
+        // void hamburgerRef.current.offsetWidth;
         setHamburgerStyle({ animation: 'glitch-clip .3s .5s' });
-        // setTimeout(setHamburgerStyle({animation:'glitch-clip .3s'}),500);
-
-        // setHamburgerStyleClose({animation:'glitch-clip .3s .5s'})
     };
 
-    //news視差
-
-    // const newsRollOn = () => {
-    //     let news1Top = news1Ref.current.offsetTop;
-    //     let moveY = window.scrollY - news1Top;
-    //     // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
-    //     // 三個區域要疊在同一個位置上 => position:abosulte
-    //     // scale值隨scrollY的值增加
-    //     // 最後消失 => opcity:0;
-    //     if (window.scrollY > news1Top) {
-    //         setNews1Style({
-    //             transform: `translateY(${moveY})`,
-    //         })
-    //     }
-
-    // };
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
 
         // 看完banner動畫才能滾動
-        document.body.style.overflow = 'hidden';
-        setTimeout(()=>{
-            document.body.style.overflow = 'auto';
-        },3000)
+        // document.body.style.overflow = 'hidden';
+        // setTimeout(()=>{
+        //     document.body.style.overflow = 'auto';
+        // },3000)
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);
@@ -275,6 +269,7 @@ export default function Home() {
     };
     const scrollToNews = () => {
         window.scrollTo({
+            // top: newscoordinateRef.current.offsetTop,
             top: newsRef.current.offsetTop,
             behavior: 'smooth',
         })
@@ -294,7 +289,7 @@ export default function Home() {
             {/* topbar & totop */}
             {/* <TapbarToTop aboutRef={aboutRef} newsRef={newsRef} hitRef={hitRef} /> */}
             <div id="topbar" style={topbarStyle}>
-                <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
+                <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO-Y.svg" alt="" />Biomonster Vault</Link></h1>
                 <nav>
                     <ul id="barlist" ref={barlistRef}>
                         <li><Link onClick={scrollToHit}>HIT</Link></li>
@@ -302,9 +297,9 @@ export default function Home() {
                         <li><Link to='/post'>POST</Link></li>
                         <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                         <li><Link onClick={scrollToTop}>TOP</Link></li>
+                        {/* <li><Link to='/select'>SELECT</Link></li> */}
                     </ul>
                 </nav>
-                {/* <Hamburger /> */}
                 <button className="hamburger" style={hamburgerStyle} ref={hamburgerRef} onClick={holdHamburger}>
                     <span className="bar"></span>
                     <span className="bar"></span>
@@ -313,7 +308,6 @@ export default function Home() {
             </div>
             <div className="totopWrapper" style={buttonStyle} >
                 <button className="toTop-btn" onClick={scrollToTop} >
-                    {/* <img src="./images/TopBtnLight.svg" alt="" /> */}
                     <img src="./images/totop-1.svg" alt="" className="totop1" />
                     <img src="./images/totop-2.svg" alt="" className="totop2" />
                     <img src="./images/totop-3.svg" alt="" className="totop3" />
@@ -428,7 +422,8 @@ export default function Home() {
                     <div id="spaceX2" style={spaceX2Style}></div>
                 </section>
                 {/* news */}
-                <section id="news" ref={newsRef} style={newsStyle}>
+                {/* <div id="newscoordinate" ref={newscoordinateRef}></div> */}
+                <section id="news" ref={newsRef} >
                     <header className="title" id="newsTitle" style={newsTitleStyle}>
                         <figure id="newsTop">
                             {/* <img src="./images/TitleTopShort-blue.svg" alt="" /> */}
@@ -610,7 +605,7 @@ export default function Home() {
                         <img id="circle5" src="./images/more-circle5.svg" alt="" className="" />
                     </button>
                 </section>
-                {/* <Rain/> */}
+                {/* about */}
                 <section id="about" ref={aboutRef}>
                     <header className="title">
                         <h2 className="h2main"> ABOUT</h2>
@@ -662,7 +657,7 @@ export default function Home() {
                             <li><Link >POST</Link></li>
                             <li><Link onClick={scrollToAbout}>ABOUT</Link></li>
                         </ul>
-                        <h2><Link to='/' onClick={scrollToTop}><img src="./images/LOGO-B.svg" alt="" />Biomonster Vault</Link></h2>
+                        <h2><Link to='/' onClick={scrollToTop}><img src="./images/LOGO-YB.svg" alt="" />Biomonster Vault</Link></h2>
                         <small>copyright &copy; 2025 BiomonsterVault </small>
                     </footer>
                 </section>

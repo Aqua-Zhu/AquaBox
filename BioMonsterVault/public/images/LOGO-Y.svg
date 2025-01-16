@@ -1,0 +1,12 @@
+<svg width="139" height="139" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M69.3076 55.2246L107.028 17.5047" stroke="#E7FC00" stroke-width="10"/>
+<path d="M33.5518 17.5039L73.6914 57.9023" stroke="#E7FC00" stroke-width="10"/>
+<path d="M33.5518 17.5039L73.6914 57.9023" stroke="black" stroke-opacity="0.2" stroke-width="10"/>
+<path d="M68.3105 92.9082L106.03 55.1883" stroke="#E7FC00" stroke-width="10"/>
+<path d="M34.2646 54.9023L70.1094 89.9883" stroke="#B9CA00" stroke-width="10"/>
+<path d="M70.1094 53.959V123.959" stroke="#B9CA00" stroke-width="8"/>
+<line y1="-5" x2="70" y2="-5" transform="matrix(0 1 1 0 110.529 21.0117)" stroke="#E7FC00" stroke-width="10"/>
+<line y1="-5" x2="70" y2="-5" transform="matrix(0 1 1 0 40.335 21.0117)" stroke="#B9CA00" stroke-width="10"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M72.1094 128.939L70.5301 130.555L30.377 91.2505L37.3679 84.1001L72.1094 118.107V128.939Z" fill="#B9CA00"/>
+<path d="M69.2041 120.961H74.1045V133.955L70.4783 130.508L69.2041 120.961Z" fill="#B9CA00"/>
+</svg>

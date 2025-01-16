@@ -1,20 +1,22 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Rain from "../component/Rain";
+import TopbarToTop from "../component/TopbarToTop";
 
 export default function Post() {
 
     useEffect(()=>{
         window.scrollTo(0,0)
-    
     },[])
+    
     return (
         <>
             <Rain/>
-            <div id='post'>
+            <main id='post'>
                 <div id="topbar" >
                     <h1><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
                 </div>
+                {/* <TopbarToTop/> */}
                 <form action="" method="post" name="member-form" id="member-form" title="資料修改">
                     <div id="formTop">
                         <div id="area2" className="area">
@@ -58,7 +60,7 @@ export default function Post() {
                         <h2><Link to='/' ><img src="./images/LOGO-B.svg" alt="" />Biomonster Vault</Link></h2>
                         <small>copyright &copy; 2025 BiomonsterVault </small>
                     </footer>
-            </div>
+            </main>
 
         </>
     )
