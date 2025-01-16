@@ -1254,10 +1254,13 @@ small{
         }
     }
     @media ($mediaLt) {
-
+        height: 10vh;
+        #circle5{
+            top: 150%;
+        }
             &:hover{
                 #circle4{
-                    top: -10%;
+                    top: -50%;
                 }
                 #circle2{
                     top: 3%;
