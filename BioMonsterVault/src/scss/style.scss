@@ -65,6 +65,13 @@ small{
             left: 10px;
         }
     }
+    @media ($mediaMdDown) {
+        .titlewrapper{
+            .h2main{
+                margin: 10px 0;
+            }
+        }
+    }
 }
 
 
@@ -427,6 +434,27 @@ small{
             }
 
         }
+        
+    }
+    @media ($mediaMdDown) {
+        #bannerBtn{
+            #bannerBtnBlock1{
+                // bottom: 5%;
+                display: none;
+            }
+            #bannerBtnBlock2{
+                bottom: 5%;
+                right: 25%;
+                width: 15%;
+                clip-path: polygon(25% 100%, 77% 0, 100% 0, 50% 100%);;
+                // display: none;
+            }
+            #bannerBtnText{
+                bottom: 5%;
+                width: 25%;
+                clip-path: polygon(0 100%, 30% 0, 100% 0, 100% 100%);
+            }
+        }
     }
 }
 
@@ -724,7 +752,79 @@ small{
             }
         }
     }
+    @media ($mediaLt-2) {
+        .title{
+            #hitBottom{
+                height: 75px;
+            }
+        }
+        .hit1{
+            .hit1ContentWrapper{
+                .hit1Content{
+                    .lineBlockStr{
+                        top: -17%;
+                        width: 15%;
+                    }
+                    .lineBlockFill{
+                        top: -17%;
+                        left: -13%;
+                        width: 13%;
+                    }
+                    .hitR{
+                        top: -13%;
+                    }
+                    .hitL1{
+                        width: 5%;
+                        bottom: 45%;
+                    }
+                    .hitL2{
+                        width: 5%;
+                        bottom: 35%;
+                    }
+                    .hitL3{
+                        width: 5%;
+                        bottom: 28%;
+                    }
+                    h3{
+                        font-size:$font-size-ex-content;
+                        padding-top: 3%;
+                    }
+                    p{
+                        line-height: $font-size-xml;
+                    }
+                    .type{
+                        font-size: $font-size-xl;
+                        line-height: $font-size-xxxxl;
+                        padding-left: 9%;
+                    }
+                    .time{
+                        line-height: $font-size-xxxxl;
+                    }
+                }
+            }
+        }
+        .hit02{
+            .hit1ContentWrapper{
+                .hit1Content{
+                    h3{
+                        padding-left: 18%;
+                    }
+                }
+            }
+        }
 
+    }
+    @media ($mediaLt-1) {
+        .hit1{
+            .hit1ContentWrapper{
+                .hit1Content{
+                    .type{
+                        line-height: $font-size-xxxl;
+                    }
+                }
+            }
+        }
+    }
     @media ($mediaLt) {
         .title{
             #hitBottom{
@@ -776,7 +876,6 @@ small{
                     .time{
                         line-height: $font-size-xxxxl;
                     }
-
                 }
             }
         }
@@ -790,6 +889,59 @@ small{
             }
         }
     }
+    @media ($mediaMdDown) {
+        .title{
+            #hitBottom{
+                height: 50px;
+            }
+            .h2bottom{
+                top: 30px;
+            }
+        }
+        .hit1{
+            .hitimg{
+                width: 53%;
+            }
+            margin: 0px 100px;
+            height: 450px;
+            .hit1ContentWrapper{
+                width: 45%;
+                .hit1Content{
+                    .hitR{
+                        top: -10%;
+                    }
+                    .hitL1{
+                        width: 4%;
+                        right: -7%;
+                        bottom: 55%;
+                    }
+                    .hitL2{
+                        right: -7%;
+                        width: 4%;
+                        bottom: 49%;
+                    }
+                    .hitL3{
+                        right: -7%;
+                        width: 4%;
+                        bottom: 45%;
+                    }
+                    h3{
+                        font-size: $font-size-xxxxl;
+                    }
+                    .type{
+                        font-size: $font-size-m;
+                        padding-left: 10%;
+                        line-height: $font-size-xl;
+                    }
+                    p{
+                        font-size: $font-size-s;
+                        line-height: $font-size-m;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 .hitimg {
@@ -1141,7 +1293,13 @@ small{
             }
         }
     }
-
+    @media ($mediaLt-2) {
+        .title{
+            #newsBottom{
+                height: 75px;
+            }
+        }
+    }
     @media ($mediaLt) {
         #scrollSpace {
             height: 55vh;
@@ -1158,6 +1316,17 @@ small{
             }
             .h2bottom{
                 letter-spacing: $font-size-ex-m;
+            }
+        }
+    }
+    @media ($mediaMdDown) {
+        .title{
+            margin-top: 50px;
+            #newsBottom{
+                height: 50px;
+            }
+            .h2bottom{
+                top: 30px;
             }
         }
     }
@@ -1253,6 +1422,16 @@ small{
             animation: shine .8s  infinite;
         }
     }
+    @media ($mediaLt-0) {
+        &:hover{
+            #circle4{
+                top: -32%;
+            }
+            #circle2{
+                top: -13%;
+            }
+        }
+    }
     @media ($mediaLt) {
         height: 10vh;
         #circle5{
@@ -1260,7 +1439,7 @@ small{
         }
             &:hover{
                 #circle4{
-                    top: -50%;
+                    top: -20%;
                 }
                 #circle2{
                     top: 3%;
@@ -1269,6 +1448,7 @@ small{
 
         
     }
+
 }
 
 // ABOUT區
@@ -1277,7 +1457,7 @@ small{
     color: #000;
     position: relative;
     z-index: 50;
-
+    overflow: hidden;
     .title {
         position: relative;
         font-size: $font-size-ex-title;
