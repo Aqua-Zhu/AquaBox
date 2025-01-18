@@ -243,13 +243,13 @@ export default function Home() {
 
 
     useEffect(() => {
-        // window.scrollTo(0,0);
+        window.scrollTo(0,0);
 
         // 看完banner動畫才能滾動
-        // document.body.style.overflow = 'hidden';
-        // setTimeout(()=>{
-        //     document.body.style.overflow = 'auto';
-        // },3000)
+        document.body.style.overflow = 'hidden';
+        setTimeout(()=>{
+            document.body.style.overflow = 'auto';
+        },3000)
 
         //滾到指定位置，讓hitTitile出現
         window.addEventListener("scroll", handleScroll);

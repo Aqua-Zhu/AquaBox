@@ -825,6 +825,32 @@ small{
             }
         }
     }
+    @media ($mediaLt-MAC16) {
+        .hit1{
+            .hit1ContentWrapper{
+                .hit1Content{
+                    .hitR{
+                        top: -12%;
+                    }
+                    .hitL1{
+                        right: -7%;
+                    }
+                    .hitL2{
+                        right: -7%;
+                    }
+                    .hitL3{
+                        right: -7%;
+                    }
+                    .type{
+                        padding-left: 6%;
+                    }
+                    p{
+                        line-height: $font-size-xl;
+                    }
+                }
+            }
+        }
+    }
     @media ($mediaLt) {
         .title{
             #hitBottom{
@@ -1429,6 +1455,16 @@ small{
             }
             #circle2{
                 top: -13%;
+            }
+        }
+    }
+    @media ($mediaLt-MAC16) {
+        &:hover{
+            #circle4{
+                top: -20%;
+            }
+            #circle2{
+                top: -5%;
             }
         }
     }
