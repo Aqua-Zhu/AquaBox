@@ -45,6 +45,7 @@ export default function Home() {
     //過場動畫
     const handleScroll = () => {
         /* topbar */
+
         let gap = 350;
         const windowTop = window.innerHeight + 10;
         if (window.scrollY >= windowTop) {
@@ -64,7 +65,6 @@ export default function Home() {
 
         const bannerPostion = bannerRef.current.offsetHeight;
         const bannerTarget = (bannerPostion / 3) - 100;
-
         /* hitTitle */
         if (window.scrollY >= bannerTarget) {
             setHitTitleStyle({
@@ -144,99 +144,109 @@ export default function Home() {
         // new3 停止 => 5184
 
 
-        const disableScroll = (duration = 1000) => {
-            // 禁用滾動且補償滾動條寬度
-            document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight =' 10px';
-        
-            // 延遲後恢復滾動
-            setTimeout(() => {
-                document.body.style.overflow = 'auto';
-                document.body.style.paddingRight = ''; // 恢復原始 padding
-            }, duration);
-        };
+        // const disableScroll = (duration = 1000) => {
+        //     // 禁用滾動且補償滾動條寬度
+        //     document.body.style.overflow = 'hidden';
+        //     document.body.style.paddingRight =' 10px';
 
-        if (window.scrollY > news1Top && moveY < 1255) {
-            setNews1Style({
-                // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
-                // scale值隨scrollY的值增加
-                transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
-                //正常顯示
-            });
-            setNews2Style({ transform: `translateY(${moveY - 40}px) scale(${1 + moveY / 2300})`, });
-            setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
-            if (window.scrollY > 4750 && window.scrollY < 4900) {
-                setNews1Style({
-                    transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
-                    opacity: 500 / (window.scrollY - 3617),
-                })
-                setNews2Style({
-                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
-                    opacity: 0.4 + (window.scrollY - 3750) / 3000,
-                    //(window.scrollY - 4750)/1500
-                });
-                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3400})`, });
-            } else if (window.scrollY >= 4900 && window.scrollY < 5100) {
-                // new1消失
+        //     // 延遲後恢復滾動
+        //     setTimeout(() => {
+        //         document.body.style.overflow = 'auto';
+        //         document.body.style.paddingRight = ''; // 恢復原始 padding
+        //     }, duration);
+        // };
 
+        /* 手機板取消 */
+        if (window.innerWidth > 640) {
+
+            /* 其他裝置執行 */
+            if (window.scrollY > news1Top && moveY < 1255) {
                 setNews1Style({
+                    // 往右移動且向下位移scrollY的距離才能在視覺上平行向右
+                    // scale值隨scrollY的值增加
                     transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
-                    //快淡出
-                    opacity: 150 / (window.scrollY - 3617),
-                })
-                setNews2Style({
-                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
-                    zIndex: '16',
-                    opacity: 1,
+                    //正常顯示
                 });
-                setNews3Style({
-                    transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
-                    opacity: 0+ (window.scrollY - 3900) / 3500,
-                });
+                setNews2Style({ transform: `translateY(${moveY - 40}px) scale(${1 + moveY / 2300})`, });
+                setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3200})`, });
+                if (window.scrollY > 4750 && window.scrollY < 4900) {
+                    setNews1Style({
+                        transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
+                        opacity: 500 / (window.scrollY - 3617),
+                    })
+                    setNews2Style({
+                        transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                        opacity: 0.4 + (window.scrollY - 3750) / 3000,
+                        //(window.scrollY - 4750)/1500
+                    });
+                    setNews3Style({ transform: `translateY(${moveY - 50}px) scale(${1 + moveY / 3400})`, });
+                } else if (window.scrollY >= 4900 && window.scrollY < 5100) {
+                    // new1消失
+
+                    setNews1Style({
+                        transform: `translate(${moveY}px , ${moveY}px) scale(${1 + moveY / 1000})`,
+                        //快淡出
+                        opacity: 150 / (window.scrollY - 3617),
+                    })
+                    setNews2Style({
+                        transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                        zIndex: '16',
+                        opacity: 1,
+                    });
+                    setNews3Style({
+                        transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                        opacity: 0 + (window.scrollY - 3900) / 3500,
+                    });
                     // disableScroll();
-            } else if (window.scrollY >= 5100 && window.scrollY <= 5184) {
-                // new2消失
+                } else if (window.scrollY >= 5100 && window.scrollY <= 5184) {
+                    // new2消失
 
-                setNews1Style({ opacity: 0, })
-                setNews2Style({
-                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
-                    //快淡出
-                    opacity: 100 / (window.scrollY - 4900),
-                })
-                setNews3Style({
-                    transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
-                    zIndex: '17',
-                    opacity: 1,
-                });
-            } else if (window.scrollY > 5160) {
-                // console.log(moveY);
-                setNews1Style({ opacity: 0, })
-                setNews2Style({
-                    transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
-                    //快淡出
-                    opacity: 100 / (window.scrollY - 4900),
-                });
-                setNews3Style({ // moveY=856
+                    setNews1Style({ opacity: 0, })
+                    setNews2Style({
+                        transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                        //快淡出
+                        opacity: 100 / (window.scrollY - 4900),
+                    })
+                    setNews3Style({
+                        transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                        zIndex: '17',
+                        opacity: 1,
+                    });
+                } else if (window.scrollY > 5160) {
+                    // console.log(moveY);
+                    setNews1Style({ opacity: 0, })
+                    setNews2Style({
+                        transform: `translate(${moveY - 270}px , ${moveY - 40}px) scale(${1 + moveY / 2300})`,
+                        //快淡出
+                        opacity: 100 / (window.scrollY - 4900),
+                    });
+                    setNews3Style({ // moveY=856
 
-                    transform: 'translate(265px,650px) scale(1.23)',
-                    // transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
-                    zIndex: '17',
-                    opacity: 1,
-                });
+                        transform: 'translate(265px,650px) scale(1.23)',
+                        // transform: `translate(${moveY - 440}px ,${moveY - 50}px) scale(${1 + moveY / 3400})`,
+                        zIndex: '17',
+                        opacity: 1,
+                    });
+                }
             }
+            else {
+                // setNews1Style({});
+                // setNews2Style({});
+                // setNews3Style({});
+            }
+        } else {
+            setNews1Style({});
+            setNews2Style({});
+            setNews3Style({});
         }
-        else {
-            // setNews1Style({});
-            // setNews2Style({});
-            // setNews3Style({});
-        }
+
     };
     //漢堡動畫
     const holdHamburger = () => {
         hamburgerRef.current.classList.toggle('click');
         barlistRef.current.classList.toggle('exhamburger');
         //把class拿掉 hamburgerRef.current.classList.remove => 建立ref or state 來檢測漢堡是否為開啟狀態
-        setHamburgerStyle({animation: 'none'});
+        setHamburgerStyle({ animation: 'none' });
         // void hamburgerRef.current.offsetWidth;
         setHamburgerStyle({ animation: 'glitch-clip .3s .5s' });
     };
@@ -372,7 +382,7 @@ export default function Home() {
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
                                 <h3>Creeper</h3>
                                 <p className="type">predatory/mammal/migratory</p>
-                                <p>The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
+                                <p className="intro">The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/6/4</p>
                             </div>
                         </div>
@@ -393,7 +403,7 @@ export default function Home() {
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03-yellow.png" alt="" /></div>
                                 <h3>Uiiaiu</h3>
                                 <p className="type">predatory/mammal/migratory</p>
-                                <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
+                                <p className="intro">The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/11/12</p>
                             </div>
                         </div>
@@ -414,7 +424,7 @@ export default function Home() {
                                 <div className="hitL3 hitborder"><img src="./images/FileContentBlock03.svg" alt="" /></div>
                                 <h3>Elsvt</h3>
                                 <p className="type">predatory/mammal/migratory</p>
-                                <p>The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
+                                <p className="intro">The Samoyedis a breed of medium-sized herding dogs with thick, white, double-layer coats. They are spitz-type dogs which take their name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika</p>
                                 <p className="time">-2024/12/25</p>
                             </div>
                         </div>
