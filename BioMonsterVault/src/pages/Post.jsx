@@ -14,14 +14,14 @@ export default function Post() {
             <Rain/>
             <main id='post'>
                 <div id="topbar" >
-                    <h1><Link to='/'><img src="./images/LOGO.svg" alt="" />Biomonster Vault</Link></h1>
+                    <h1><Link to='/'><img src="./images/LOGO-Y.svg" alt="" />Biomonster Vault</Link></h1>
                 </div>
                 {/* <TopbarToTop/> */}
                 <form action="" method="post" name="member-form" id="member-form" title="資料修改">
                     <div id="formTop">
                         <div id="area2" className="area">
-                            <img src="./images/imageswrapper.svg" alt="" />
-                            {/* <label>UPLOAD</label> */}
+                            <img id="DeskBorder" src="./images/imageswrapper.svg" alt="" />
+                            <img id="MobileBorder" src="./images/PostMobileImg.svg" alt="" />
                             <label htmlFor="file" className="uploadbtn">UPLOAD<img src="./images/upload.svg" alt=""  /></label>
                             <input type="file" name="file" id="file" title="file" multiple>
                             </input>
@@ -57,7 +57,7 @@ export default function Post() {
                     </div>
                 </form>
                 <footer>
-                        <h2><Link to='/' ><img src="./images/LOGO-B.svg" alt="" />Biomonster Vault</Link></h2>
+                        <h2><Link to='/' ><img src="./images/LOGO-YB.svg" alt="" />Biomonster Vault</Link></h2>
                         <small>copyright &copy; 2025 BiomonsterVault </small>
                     </footer>
             </main>
