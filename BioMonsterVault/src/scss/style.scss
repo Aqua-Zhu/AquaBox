@@ -2380,11 +2380,29 @@ footer {
 
 /* select */
 #select {
-    #MonterContent {
-        width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #MonsterIntro {
+        display: flex;
+        width: 80%;
+        margin-top: 150px;
+        #MonsterContentImg{
+            img{
+                width: 90%;
+                margin-bottom: 100px;
+            }
+        }
     }
+    #MonsterContent{
+        img{
+            width: 10%;
+        }
+        .ContentB{
+            width: 100%;
+        }
+        #comment-btn{
 
-    img {
-        border: none;
+        }
     }
 }
