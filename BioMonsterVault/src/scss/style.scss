@@ -73,11 +73,14 @@ small {
             }
         }
     }
+
     @media ($mediaSm) {
         margin-top: 100px;
-        .titlewrapper{
+
+        .titlewrapper {
             font-size: $font-size-ex-hitTitle;
-            .h2main{
+
+            .h2main {
                 margin: 20px 0 5px;
             }
         }
@@ -135,16 +138,19 @@ small {
             }
         }
     }
+
     @media ($mediaSm) {
-        .toTop-btn{
+        .toTop-btn {
             right: 0;
+
             .totop1 {
                 width: 30%;
             }
-    
+
             .totop2 {
                 width: 40%;
             }
+
             .totop3 {
                 width: 43%;
                 margin-top: 15px;
@@ -356,13 +362,15 @@ small {
             }
         }
     }
+
     @media ($mediaMdDown) {
-        nav{
+        nav {
             width: 20%;
         }
     }
+
     @media ($mediaSm) {
-        nav{
+        nav {
             width: 60%;
         }
     }
@@ -506,14 +514,17 @@ small {
         img {
             display: none;
         }
-        #bannerBtn{
-            #bannerBtnBlock1{
+
+        #bannerBtn {
+            #bannerBtnBlock1 {
                 display: none;
             }
-            #bannerBtnBlock2{
+
+            #bannerBtnBlock2 {
                 display: none;
             }
-            #bannerBtnText{
+
+            #bannerBtnText {
                 padding: 0;
                 right: 32%;
                 bottom: 35%;
@@ -524,7 +535,8 @@ small {
                 justify-content: center;
                 background-color: transparent;
                 border: 2px solid $color-main-yellow;
-                a{
+
+                a {
                     color: $color-main-yellow;
                     font-size: $font-size-xl;
                 }
@@ -1086,71 +1098,90 @@ small {
             }
         }
     }
+
     @media ($mediaSm) {
-        .title{
+        .title {
             padding-bottom: 30px;
             margin-bottom: 150px;
-            #hitTop{
+
+            #hitTop {
                 width: 68%;
             }
-            #hitBottom{
+
+            #hitBottom {
                 width: 70%;
                 height: 28px;
             }
-            .titlewrapper{
+
+            .titlewrapper {
                 margin-left: 5%;
-                .h2main{
+
+                .h2main {
                     letter-spacing: $font-size-xxxl;
                 }
-                .h2bottom{
+
+                .h2bottom {
                     letter-spacing: $font-size-xxxl;
                     top: 15px;
                     left: 6px;
                 }
             }
         }
-        .hit1{
+
+        .hit1 {
             margin: 0 12% 200px;
             flex-direction: column;
-            .hitimg{
+
+            .hitimg {
                 width: 110%;
                 margin-bottom: 50px;
             }
-            .hit1ContentWrapper{
+
+            .hit1ContentWrapper {
                 width: 90%;
-                #line1{
+
+                #line1 {
                     width: 120%;
                 }
-                .hitContent{
+
+                .hitContent {
                     margin-left: 5%;
-                    .lineBlockStr{
+
+                    .lineBlockStr {
                         left: -10%;
                     }
-                    .lineBlockFill{
+
+                    .lineBlockFill {
                         left: 5%;
                     }
-                    .hitR{
+
+                    .hitR {
                         top: -8%;
                     }
-                    .hitL1{
+
+                    .hitL1 {
                         width: 3.5%;
                         right: -6%;
                         bottom: 65%;
                     }
-                    .hitL2{
+
+                    .hitL2 {
                         width: 3.5%;
                         right: -6%;
                         bottom: 60%;
                     }
-                    .hitL3{
+
+                    .hitL3 {
                         width: 3.5%;
                         right: -6%;
                         bottom: 56%;
                     }
-                    h3{
+
+                    h3 {
                         font-size: $font-size-xxxml;
                     }
-                    .intro{
+
+                    .intro {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         display: -webkit-box;
@@ -1158,7 +1189,8 @@ small {
                         line-clamp: 5;
                         -webkit-box-orient: vertical;
                     }
-                    .type{
+
+                    .type {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -1168,10 +1200,11 @@ small {
 
             }
         }
-        .hit02{
-            .hit1ContentWrapper{
-                .hitContent{
-                    p{
+
+        .hit02 {
+            .hit1ContentWrapper {
+                .hitContent {
+                    p {
                         padding-left: 10%;
                     }
                 }
@@ -1577,34 +1610,43 @@ small {
             }
         }
     }
+
     @media ($mediaSm) {
-        .title{
+        .title {
             padding-bottom: 35px;
-            #newsTop{
+
+            #newsTop {
                 width: 70%;
             }
-            .titlewrapper{
+
+            .titlewrapper {
                 margin-left: 10px;
-                .h2main{
+
+                .h2main {
                     letter-spacing: $font-size-xl;
                     margin: 20px 0 5px;
                 }
-                .h2bottom{
+
+                .h2bottom {
                     letter-spacing: $font-size-xl;
                 }
             }
-            #newsBottom{
+
+            #newsBottom {
                 width: 70%;
                 height: 28px;
             }
 
         }
-        #scrollSpace{
+
+        #scrollSpace {
             height: 0;
         }
+
         .newsContent {
-            margin:30% 10%;
+            margin: 30% 10%;
             position: relative;
+
             .newsLine1 {
                 width: 50%;
                 padding-left: 0;
@@ -1612,7 +1654,7 @@ small {
                 position: relative;
                 line-height: $font-size-ex-m;
             }
-    
+
             .newsImg {
                 margin-top: 20px;
                 margin-left: 20%;
@@ -1621,46 +1663,56 @@ small {
                 position: relative;
             }
         }
-        #news-1{
+
+        #news-1 {
             width: 80%;
         }
-        #news-2{
+
+        #news-2 {
             width: 80%;
             opacity: 1;
             top: 0;
             left: 0;
         }
-        #news-3{
+
+        #news-3 {
             width: 80%;
             opacity: 1;
             top: 0;
             left: 0
         }
-        #moreLine{
+
+        #moreLine {
             margin-top: 50px;
         }
-        #moreBtn{
+
+        #moreBtn {
             font-size: $font-size-s;
             margin-bottom: 120px;
-            #circle1{
+
+            #circle1 {
                 width: 70%;
                 animation: shine 2s infinite;
             }
-            #circle2{
+
+            #circle2 {
                 width: 30%;
                 left: 45%;
 
             }
-            #circle3{
+
+            #circle3 {
                 width: 90%;
             }
-            #circle4{
+
+            #circle4 {
                 width: 110%;
                 animation: circ3 3s linear infinite;
                 left: -4.5%;
                 top: -6.5%;
             }
-            #circle5{
+
+            #circle5 {
                 width: 110%;
                 top: 70px;
             }
@@ -1947,83 +1999,102 @@ small {
             font-weight: 900;
         }
     }
+
     @media ($mediaSm) {
-        .title{
+        .title {
             margin-top: 200px;
             font-size: $font-size-ex-content;
             letter-spacing: $font-size-m;
-            .h2main{
+
+            .h2main {
                 margin: 0;
             }
-            .h2bottom{
+
+            .h2bottom {
                 top: -5px;
                 left: -5px;
             }
         }
-        #aboutTitle{
+
+        #aboutTitle {
             margin-top: 150px;
             margin-left: 5%;
-            .aboutCircle{
+
+            .aboutCircle {
                 font-size: $font-size-l;
-                .pTop{
-                    .circle{
+
+                .pTop {
+                    .circle {
                         width: 150px;
                         height: 150px;
                         bottom: -65px;
                     }
-                    .pTopcircle1{
+
+                    .pTopcircle1 {
                         left: -60px;
                     }
-                    .pTopcircle1b{
+
+                    .pTopcircle1b {
                         left: -65px;
                     }
                 }
-                .pTop{
-                    .pBottom{
+
+                .pTop {
+                    .pBottom {
                         top: -2px;
                         left: -3px;
                     }
-                    .circle{
+
+                    .circle {
                         width: 120px;
                         height: 120px;
                         bottom: -50px;
                     }
-                    .pTopcircle1{
+
+                    .pTopcircle1 {
                         left: -45px;
                     }
-                    .pTopcircle1b{
+
+                    .pTopcircle1b {
                         left: -50px;
                     }
-                    .pTopcircle2{
+
+                    .pTopcircle2 {
                         width: 150px;
                         height: 150px;
                         left: -30px;
                         bottom: -65px;
                     }
-                    .pTopcircle2b{
+
+                    .pTopcircle2b {
                         width: 150px;
                         height: 150px;
                         left: -35px;
                         bottom: -65px;
                     }
-                    .pTopcircle3{
+
+                    .pTopcircle3 {
                         left: -35px;
                     }
-                    .pTopcircle3b{
+
+                    .pTopcircle3b {
                         left: -40px;
                     }
                 }
             }
         }
-        #aboutContent{
+
+        #aboutContent {
             margin: 0 10%;
         }
-        #aboutContent{
-            h3{
+
+        #aboutContent {
+            h3 {
                 margin-top: 150px;
                 font-size: $font-size-xxl;
             }
-            p{
+
+            p {
                 font-size: $font-size-m;
                 line-height: $font-size-xxxl;
 
@@ -2086,6 +2157,7 @@ footer {
     @media ($mediaSm) {
         width: 100%;
         height: 20vh;
+
         ul {
             display: none;
         }
@@ -2099,7 +2171,8 @@ footer {
                 align-items: center;
             }
         }
-        small{
+
+        small {
             margin-top: 20px;
         }
     }
@@ -2211,9 +2284,11 @@ footer {
             position: absolute;
             width: 50%;
             left: 20%;
-            #MobileBorder{
+
+            #MobileBorder {
                 display: none;
             }
+
             .uploadbtn {
                 width: 13%;
                 display: flex;
@@ -2323,55 +2398,67 @@ footer {
             }
         }
     }
+
     @media ($mediaSm) {
-        #member-form{
-            #formTop{
+        #member-form {
+            #formTop {
                 flex-direction: column;
                 justify-content: center;
-                #area2{
+
+                #area2 {
                     position: relative;
                     width: 80%;
                     left: 10%;
-                    #DeskBorder{
+
+                    #DeskBorder {
                         display: none;
                     }
-                    #MobileBorder{
+
+                    #MobileBorder {
                         display: flex;
                     }
-                    .uploadbtn{
+
+                    .uploadbtn {
                         width: 33%;
                         left: 32%;
                         top: 28%;
                         font-size: $font-size-s;
-                        img{
+
+                        img {
                             width: 15%;
                         }
                     }
                 }
-                #area1{
+
+                #area1 {
                     width: 70%;
                     margin: 30px 15% 0;
                 }
             }
-            #area3{
+
+            #area3 {
                 margin: 0 15%;
                 width: 70%;
-                textarea{
+
+                textarea {
                     height: 200px;
                     padding: 25px 35px
                 }
-                #handlebtn{
+
+                #handlebtn {
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
-                    button{
+
+                    button {
                         margin: 50px 0;
                         width: 120px;
                     }
                 }
             }
         }
-        footer{
+
+        footer {
             margin-top: 80px;
         }
     }
@@ -2383,26 +2470,200 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     #MonsterIntro {
         display: flex;
         width: 80%;
         margin-top: 150px;
-        #MonsterContentImg{
-            img{
+
+        #MonsterContentImg {
+            img {
                 width: 90%;
                 margin-bottom: 100px;
             }
         }
     }
-    #MonsterContent{
-        img{
-            width: 10%;
-        }
-        .ContentB{
-            width: 100%;
-        }
-        #comment-btn{
 
+    #MonsterContent {
+        position: relative;
+        #ContentWrapper {
+            .ContentB {
+                width: 100%;
+            }
+
+            //ContentBBF
+            .ContentBBF {
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                width: 10%;
+            }
+            .ContentBBM {
+                width:50%;
+                left: 55%;
+                top: 16.4%;
+            }
+            .ContentBBF1 {
+                width:4%;
+                left: 85%;
+                top: 17%;
+            }
+            .ContentBBF2 {
+                width: 5%;
+                left: 81.5%;
+                top: 17%;
+            }
+            .ContentBBF3 {
+                width: 5%;
+                left: 78%;
+                top: 17%;
+            }
+            .ContentBBF4 {
+                width:33%;
+                left: 46%;
+                top: 17%;
+            }
+            .ContentBBF5 {
+                width:25%;
+                left: 35%;
+                top: 16.6%;
+            }
+            .ContentBBF6 {
+                width:8%;
+                left: 31%;
+                top: 16.6%;
+            }
+            .ContentBBF7 {
+                width:8%;
+                left: 27%;
+                top: 16.6%;
+            }
+
+            //ContentLF
+            .ContentLMain{
+                position: absolute;
+                width: 12%;
+                top: 2.5%;
+                left: -7%;
+            }
+            .ContentLLine{
+                position: absolute;
+                width: 25%;
+                top: 6.8%;
+                left: -9%;
+            }
+            .ContentLLine2{
+                position: absolute;
+                width: 40%;
+                top: 19%;
+                left: 5%;
+            }
+            .ContentLFill{
+                width: 2.3%;
+                position: absolute;
+                left: -5.6%;
+                top: 0;
+            }
+            .LFill1{
+                top: 8.5%;
+            }
+            .LFill2{
+                top: 11%;
+            }
+            .LFill3{
+                top: 12.6%;
+            }
+
+            //ContentLFBR
+            .ContentLFBR{
+                position: absolute;
+                width: 4.5%;
+                top: 0;
+                left: 96.5%;
+            }
+            .ContentLFBR1{
+                top: 4.8%;
+            }
+            .ContentLFBR2{
+                top: 7.8%;
+            }
+            .ContentLFBR3{
+                top: 10.2%;
+            }
+            .ContentLFBRT{
+                position: absolute;
+                width: 35%;
+                top: -1.5%;
+                left: 70%;
+            }
+
+            //ContentLine
+            .ContentLine{
+                position: absolute;
+                top: -4%;
+                left: -30%;
+            }
+            .ContentLineFill{
+                position: absolute;
+                width: 8%;
+                top: -3.5%;
+                left: -25%;
+            }
+            .ContentLineStrike{
+                position: absolute;
+                width: 10%;
+                top: -3.5%;
+                left: -34%;
+            }
+        }
+
+        #comment-btn{
+            margin: 25% 0 0 80%;
+            background-color: transparent;
+            border: none;
+            position: relative;
+            #CBTN{
+                position: relative;
+                z-index: 98;
+                width: 65%;
+                cursor: pointer;
+                
+            }
+            #comment-btnWrapper{
+                width: 100%;
+                height: 150px;
+                position: absolute;
+                top: 0;
+                img{
+                    position: absolute;
+                    right: 0;
+                }
+                .comment-circle1{
+                    width: 130%;
+                    top: -22%;
+                    left: -35%;
+                }
+                .comment-circle2{
+                    width: 160%;
+                    top: -28%;
+                    left: -49%;
+                }
+                .comment-circle3{
+                    width: 185%;
+                    top: -38%;
+                    left: -60%;
+                }
+                .comment-circle4{
+                    width: 220%;
+                    top: -50%;
+                    left: -80%;
+                }
+                .comment-circle5{
+                    width: 210%;
+                    top: 3%;
+                    left: -38%;
+                }
+            }
         }
     }
 }
