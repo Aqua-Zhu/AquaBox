@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Select() {
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     }, [])
 
     return (
@@ -62,31 +62,87 @@ export default function Select() {
                 </section>
                 {/* comment */}
                 <section id="comment">
-                    <article></article>
+                    <figure className="comment-left">
+                        <h4>COMMENT</h4>
+                        <img className="title-block" src="./images/comment-border.svg" alt="" />
+                        <div className="title-line">
+                            <img className="titleBorder border1" src="./images/comment-border1.svg" alt="" />
+                            <img className="titleBorder border2" src="./images/comment-border2.svg" alt="" />
+                            <img className="titleBorder border3" src="./images/comment-border3.svg" alt="" />
+                        </div>
+                    </figure>
+                    <figure className="comment-right">
+                        <img className="commentLineMain" src="./images/commentLineMain.svg" alt="" />
+                        <img className="commentLine commentLineL1" src="./images/commentLineL1.svg" alt="" />
+                        <img className="commentLine commentLineL2" src="./images/commentLineL2.svg" alt="" />
+                        <img className="commentLine commentLineL3" src="./images/commentLineL3.svg" alt="" />
+                        <img className="commentLine commentLineR1" src="./images/commentLineR1.svg" alt="" />
+                        <img className="commentLine commentLineR2" src="./images/commentLineR2.svg" alt="" />
+                        <img className="commentLine commentLineR3" src="./images/commentLineR3.svg" alt="" />
+                        <img className="commentLine commentLineR4" src="./images/commentLineR4.svg" alt="" />
+                    </figure>
+                    <article>
+                        <figure className="memmber">
+                            <img className="memmber-topping memmber-circle1" src="./images/memmber-circle1.svg" alt="" />
+                            <img className="memmber-topping memmber-circle2" src="./images/memmber-circle2.svg" alt="" />
+                            <img className="memmber-topping memmber-circle3" src="./images/memmber-circle3.svg" alt="" />
+                            <img className="memmber-topping memmber-circle4" src="./images/memmber-circle4.svg" alt="" />
+                            <img className="memmber-topping memmber-circle5" src="./images/memmber-circle5.svg" alt="" />
+                            <img className="memmber-topping memmber-line" src="./images/memmber-line.svg" alt="" />
+                        </figure>
+                        <div className="memmber-comment">
+                            <p>John Cena</p>
+                            <p>You can't see me</p>
+                            <p>- 2024/12/15</p>
+                        </div>
+
+                    </article>
                     <article></article>
                     <article></article>
                     <article></article>
                 </section>
                 {/* others */}
                 <section id="others">
+                    <figure className="comment-left">
+                        <h4>OTHERS</h4>
+                        <img className="title-block" src="./images/comment-border.svg" alt="" />
+
+                        <div className="title-line">
+                            <img className="titleBorder border1" src="./images/comment-border1.svg" alt="" />
+                            <img className="titleBorder border2" src="./images/comment-border2.svg" alt="" />
+                            <img className="titleBorder border3" src="./images/comment-border3.svg" alt="" />
+                        </div>
+                    </figure>
+                    <figure className="comment-right">
+                        <img className="commentLineMain" src="./images/commentLineMain.svg" alt="" />
+                        <img className="commentLine commentLineL1" src="./images/commentLineL1.svg" alt="" />
+                        <img className="commentLine commentLineL2" src="./images/commentLineL2.svg" alt="" />
+                        <img className="commentLine commentLineL3" src="./images/commentLineL3.svg" alt="" />
+                        <img className="commentLine commentLineR1" src="./images/commentLineR1.svg" alt="" />
+                        <img className="commentLine commentLineR2" src="./images/commentLineR2.svg" alt="" />
+                        <img className="commentLine commentLineR3" src="./images/commentLineR3.svg" alt="" />
+                        <img className="commentLine commentLineR4" src="./images/commentLineR4.svg" alt="" />
+                    </figure>
                     <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
                 </section>
-                {/* footer */}
-                <footer>
-                    <ul>
-                        <li><Link >HIT</Link></li>
-                        <li><Link >NEWS</Link></li>
-                        <li><Link >POST</Link></li>
-                        <li><Link >ABOUT</Link></li>
-                    </ul>
-                    <h2><Link to='/' ><img src="./images/LOGO-YB.svg" alt="" />Biomonster Vault</Link></h2>
-                    <small>copyright &copy; 2025 BiomonsterVault </small>
-                </footer>
+
             </main>
+
+            {/* footer */}
+            <footer>
+                <ul>
+                    <li><Link >HIT</Link></li>
+                    <li><Link >NEWS</Link></li>
+                    <li><Link >POST</Link></li>
+                    <li><Link >ABOUT</Link></li>
+                </ul>
+                <h2><Link to='/' ><img src="./images/LOGO-YB.svg" alt="" />Biomonster Vault</Link></h2>
+                <small>copyright &copy; 2025 BiomonsterVault </small>
+            </footer>
         </>
     )
 

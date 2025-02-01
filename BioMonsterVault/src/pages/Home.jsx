@@ -37,6 +37,7 @@ export default function Home() {
     const [spaceX2Style, setSpaceX2Style] = useState({});
     const [newsTitleStyle, setNewsTitleStyle] = useState(resetStyle);
     const [hamburgerStyle, setHamburgerStyle] = useState({});
+    const [listStyle, setListStyle] = useState({});
     const [news1Style, setNews1Style] = useState({})
     const [news2Style, setNews2Style] = useState({ paddingBottom: '70px' })
     const [news3Style, setNews3Style] = useState({ paddingBottom: '70px' })
@@ -245,10 +246,14 @@ export default function Home() {
     const holdHamburger = () => {
         hamburgerRef.current.classList.toggle('click');
         barlistRef.current.classList.toggle('exhamburger');
+
         //把class拿掉 hamburgerRef.current.classList.remove => 建立ref or state 來檢測漢堡是否為開啟狀態
         setHamburgerStyle({ animation: 'none' });
         // void hamburgerRef.current.offsetWidth;
         setHamburgerStyle({ animation: 'glitch-clip .3s .5s' });
+
+
+        setListStyle({width:'15%'})
     };
 
 
@@ -300,7 +305,7 @@ export default function Home() {
             {/* <TapbarToTop aboutRef={aboutRef} newsRef={newsRef} hitRef={hitRef} /> */}
             <div id="topbar" style={topbarStyle}>
                 <h1 onClick={scrollToTop}><Link to='/'><img src="./images/LOGO-Y.svg" alt="" />Biomonster Vault</Link></h1>
-                <nav>
+                <nav style={listStyle}>
                     <ul id="barlist" ref={barlistRef}>
                         <li><Link onClick={scrollToHit}>HIT</Link></li>
                         <li><Link onClick={scrollToNews} >NEWS</Link></li>

@@ -13,7 +13,8 @@ export default function TopbarToTop() {
     // // 預設置頂按鈕隱藏，之後判斷何時出現
     const [buttonStyle, setButtonStyle] = useState(resetStyle);
     const [hamburgerStyle, setHamburgerStyle] = useState({});
-    
+    const [listStyle, setListStyle] = useState({});
+
     const holdHamburger = () => {
         hamburgerRef.current.classList.toggle('click');
         barlistRef.current.classList.toggle('exhamburger');
@@ -21,6 +22,8 @@ export default function TopbarToTop() {
         setHamburgerStyle({animation: 'none'});
         // void hamburgerRef.current.offsetWidth;
         setHamburgerStyle({ animation: 'glitch-clip .3s .5s' });
+
+        setListStyle({width:'15%'})
     };
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -53,7 +56,7 @@ export default function TopbarToTop() {
         <>
             <div id="topbar" >
                 <h1><Link to='/'><img src="./images/LOGO-Y.svg" alt="" />Biomonster Vault</Link></h1>
-                <nav>
+                <nav style={listStyle}>
                     <ul id="barlist" ref={barlistRef}>
 
                         <li><Link to='/post'>POST</Link></li>
